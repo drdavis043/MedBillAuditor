@@ -19,7 +19,7 @@ final class AuditResult {
     @Relationship(deleteRule: .cascade)
     var flags: [AuditFlag] = []
     
-    var bill: MedicalBill?
+    var bill: MedicalBill? = nil
     
     init() {
         self.id = UUID()

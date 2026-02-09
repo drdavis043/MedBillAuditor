@@ -13,7 +13,7 @@ final class LineItem {
     var id: UUID
     var cptCode: String?
     var hcpcsCode: String?
-    var description: String
+    var itemDescription: String
     var quantity: Int
     var chargedAmount: Decimal
     var allowedAmount: Decimal?
@@ -28,15 +28,15 @@ final class LineItem {
     var fairMarketPrice: Decimal?
     var medicareRate: Decimal?
     
-    var bill: MedicalBill?
+    var bill: MedicalBill? = nil
     
     init(
-        description: String = "",
+        itemDescription: String = "",
         chargedAmount: Decimal = 0,
         quantity: Int = 1
     ) {
         self.id = UUID()
-        self.description = description
+        self.itemDescription = itemDescription
         self.chargedAmount = chargedAmount
         self.quantity = quantity
     }

@@ -31,9 +31,9 @@ final class MedicalBill {
     @Relationship(deleteRule: .cascade)
     var lineItems: [LineItem] = []
     @Relationship(deleteRule: .cascade)
-    var auditResult: AuditResult?
+    var auditResult: AuditResult? = nil
     @Relationship(deleteRule: .cascade)
-    var disputeLetter: DisputeLetter?
+    var disputeLetter: DisputeLetter? = nil
     
     init(
         providerName: String = "",

@@ -5,33 +5,61 @@
 //  Created by Derek Davis on 2/8/26.
 //
 import Foundation
-import SwiftData
 
-@Model
-final class AuditFlag {
-    var id: UUID
-    var flagType: FlagType
-    var severity: FlagSeverity
-    var title: String
-    var explanation: String
-    var estimatedImpact: Decimal?
-    var recommendation: String
-    var affectedLineItemID: UUID?
+enum BillStatus: String, Codable, CaseIterable {
+    case captured
+    case parsing
+    case parsed
+    case auditing
+    case audited
+    case disputed
+    case resolved
     
-    var auditResult: AuditResult?
+    var label: String {
+        switch self {
+        case .captured:  return "Captured"
+        case .parsing:   return "Processing"
+        case .parsed:    return "Ready to Audit"
+        case .auditing:  return "Auditing"
+        case .audited:   return "Audit Complete"
+        case .disputed:  return "Disputed"
+        case .resolved:  return "Resolved"
+        }
+    }
+}
+
+enum BillSource: String, Codable {
+    case camera, pdfImport, manual
+}
+
+enum FacilityType: String, Codable, CaseIterable {
+    case hospital, physicianOffice, urgentCare
+    case laboratory, imagingCenter, ambulatory
+    case emergency, unknown
+}
+
+enum FlagType: String, Codable {
+    case duplicateCharge
+    case unbundling
+    case upcoding
+    case balanceBilling
+    case priceOutlier
+    case missingModifier
+    case incorrectQuantity
+    case notCovered
+    case other
+}
+
+enum FlagSeverity: String, Codable, CaseIterable {
+    case critical
+    case warning
+    case info
     
-    init(
-        flagType: FlagType,
-        severity: FlagSeverity,
-        title: String,
-        explanation: String,
-        recommendation: String
-    ) {
-        self.id = UUID()
-        self.flagType = flagType
-        self.severity = severity
-        self.title = title
-        self.explanation = explanation
-        self.recommendation = recommendation
+    var color: String {
+        switch self {
+        case .critical: return "red"
+        case .warning:  return "orange"
+        case .info:     return "blue"
+        }
     }
 }

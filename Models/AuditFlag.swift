@@ -19,7 +19,7 @@ final class AuditFlag {
     var recommendation: String
     var affectedLineItemID: UUID?
     
-    var auditResult: AuditResult?
+    var auditResult: AuditResult? = nil
     
     init(
         flagType: FlagType,
