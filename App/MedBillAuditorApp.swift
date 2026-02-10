@@ -7,12 +7,14 @@
 
 import SwiftUI
 import SwiftData
-
 @main
 struct MedBillAuditorApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .onAppear {
+                    MedicareFeeLoader.shared.load()
+                }
         }
         .modelContainer(for: [
             MedicalBill.self,
