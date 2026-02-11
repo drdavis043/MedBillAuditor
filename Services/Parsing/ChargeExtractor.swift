@@ -16,47 +16,65 @@ struct ChargeExtractor {
         
         // First normalize S → $ for OCR misreads
         var normalized = text
-        // "S 1,234.56" or "S1,234.56" → "$1,234.56"
         normalized = normalized.replacingOccurrences(
             of: "S\\s?([0-9]{1,3}(?:,?[0-9]{3})*\\.[0-9]{2})",
             with: "$$$1",
             options: .regularExpression
         )
         
-        // Pattern matches: $1,234.56  $1234.56  $1,234  1,234.56  1234.56
-        let pattern = "\\$\\s?([0-9]{1,3}(?:,?[0-9]{3})*\\.[0-9]{2})"
+        // Pattern 1: Dollar sign amounts — $1,234.56
+        let dollarPattern = "\\$\\s?([0-9]{1,3}(?:,?[0-9]{3})*\\.[0-9]{2})"
+        amounts.append(contentsOf: findAmounts(in: normalized, pattern: dollarPattern))
         
-        guard let regex = try? NSRegularExpression(pattern: pattern) else {
-            return amounts
+        // Pattern 2: Bare amounts at end of line (no $) — common in table-formatted bills
+        // Only use if we didn't find any $ amounts
+        if amounts.isEmpty {
+            let barePattern = "\\b([0-9]{1,3}(?:,?[0-9]{3})*\\.[0-9]{2})\\s*$"
+            let bareAmounts = findAmounts(in: normalized, pattern: barePattern)
+            // Filter out likely false positives
+            for amount in bareAmounts {
+                if amount.value >= 10 && amount.value < 100_000 {
+                    amounts.append(amount)
+                }
+            }
         }
         
-        let range = NSRange(normalized.startIndex..., in: normalized)
-        let matches = regex.matches(in: normalized, range: range)
+        return amounts
+    }
+    
+    private func findAmounts(in text: String, pattern: String) -> [ExtractedAmount] {
+        var results: [ExtractedAmount] = []
+        
+        guard let regex = try? NSRegularExpression(pattern: pattern) else {
+            return results
+        }
+        
+        let range = NSRange(text.startIndex..., in: text)
+        let matches = regex.matches(in: text, range: range)
         
         for match in matches {
-            guard let fullRange = Range(match.range, in: normalized),
-                  let numRange = Range(match.range(at: 1), in: normalized) else { continue }
+            guard let fullRange = Range(match.range, in: text),
+                  let numRange = Range(match.range(at: 1), in: text) else { continue }
             
-            let rawText = String(normalized[fullRange])
-            let numString = String(normalized[numRange])
+            let rawText = String(text[fullRange])
+            let numString = String(text[numRange])
                 .replacingOccurrences(of: ",", with: "")
             
             guard let value = Decimal(string: numString),
                   value > 0,
-                  value < 1_000_000 else { continue }  // Sanity check
+                  value < 1_000_000 else { continue }
             
-            // Skip likely false positives
-            if isLikelyFalsePositive(value: value, raw: rawText, context: normalized) {
+            if isLikelyFalsePositive(value: value, raw: rawText, context: text) {
                 continue
             }
             
-            amounts.append(ExtractedAmount(
+            results.append(ExtractedAmount(
                 value: value,
                 rawText: rawText
             ))
         }
         
-        return amounts
+        return results
     }
     
     /// Quick check: does this line contain any dollar amount?
@@ -65,8 +83,6 @@ struct ChargeExtractor {
     }
     
     /// Attempts to classify amounts on a line into charge categories.
-    /// Medical bills typically list amounts in order:
-    /// Billed → Allowed → Adjustment → Insurance Paid → Patient Owes
     func classifyAmounts(_ amounts: [ExtractedAmount], context: String) -> ClassifiedCharges {
         var result = ClassifiedCharges()
         let lower = context.lowercased()
@@ -114,11 +130,15 @@ struct ChargeExtractor {
     private func isLikelyFalsePositive(value: Decimal, raw: String, context: String) -> Bool {
         let lower = context.lowercased()
         
-        // Account/reference numbers
         if lower.contains("account") || lower.contains("ref #") || lower.contains("claim #") {
             if !raw.contains("$") {
                 return true
             }
+        }
+        
+        // Phone numbers
+        if lower.contains("call") || lower.contains("phone") || lower.contains("fax") {
+            return true
         }
         
         return false
@@ -139,3 +159,13 @@ struct ClassifiedCharges {
     var insurancePaid: Decimal?
     var patientOwes: Decimal?
 }
+
+
+
+
+
+
+
+
+
+
