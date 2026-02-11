@@ -5,7 +5,6 @@
 //  Created by Derek Davis on 2/8/26.
 //
 import SwiftUI
-
 struct ContentView: View {
     var body: some View {
         TabView {
@@ -13,12 +12,10 @@ struct ContentView: View {
                 .tabItem {
                     Label("Scan", systemImage: "doc.text.magnifyingglass")
                 }
-            
-            BillListPlaceholder()
+            BillListView()
                 .tabItem {
                     Label("Bills", systemImage: "list.bullet.rectangle")
                 }
-            
             SettingsPlaceholder()
                 .tabItem {
                     Label("Settings", systemImage: "gear")
@@ -26,17 +23,6 @@ struct ContentView: View {
         }
     }
 }
-
-struct BillListPlaceholder: View {
-    var body: some View {
-        NavigationStack {
-            Text("Your bills will appear here")
-                .foregroundStyle(.secondary)
-                .navigationTitle("Bills")
-        }
-    }
-}
-
 struct SettingsPlaceholder: View {
     var body: some View {
         NavigationStack {

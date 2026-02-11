@@ -5,6 +5,7 @@
 //  Created by Derek Davis on 2/8/26.
 //
 import SwiftUI
+
 struct ImagePreviewView: View {
     let image: UIImage
     let onConfirm: (UIImage) -> Void
@@ -15,40 +16,37 @@ struct ImagePreviewView: View {
     @State private var showAdjustments = false
     
     var body: some View {
-        VStack(spacing: 0) {
-            // Image preview with zoom
-            GeometryReader { geo in
-                ZoomableScrollView {
-                    Image(uiImage: adjustedImage)
-                        .resizable()
-                        .scaledToFit()
-                }
+        // Image preview with zoom - takes full screen
+        GeometryReader { geo in
+            ZoomableScrollView {
+                Image(uiImage: adjustedImage)
+                    .resizable()
+                    .scaledToFit()
             }
-            .frame(maxHeight: .infinity)
-            .background(Color.black.opacity(0.02))
-            
-            // Adjustments panel
-            if showAdjustments {
-                VStack(spacing: 16) {
-                    HStack {
-                        Text("Brightness")
-                            .font(.caption)
-                            .frame(width: 80, alignment: .leading)
-                        Slider(value: $brightness, in: -0.3...0.3, step: 0.05)
+        }
+        .background(Color.black.opacity(0.02))
+        .safeAreaInset(edge: .bottom) {
+            VStack(spacing: 0) {
+                // Adjustments panel
+                if showAdjustments {
+                    VStack(spacing: 16) {
+                        HStack {
+                            Text("Brightness")
+                                .font(.caption)
+                                .frame(width: 80, alignment: .leading)
+                            Slider(value: $brightness, in: -0.3...0.3, step: 0.05)
+                        }
+                        HStack {
+                            Text("Contrast")
+                                .font(.caption)
+                                .frame(width: 80, alignment: .leading)
+                            Slider(value: $contrast, in: 0.5...2.0, step: 0.1)
+                        }
                     }
-                    HStack {
-                        Text("Contrast")
-                            .font(.caption)
-                            .frame(width: 80, alignment: .leading)
-                        Slider(value: $contrast, in: 0.5...2.0, step: 0.1)
-                    }
+                    .padding()
+                    .background(.ultraThinMaterial)
                 }
-                .padding()
-                .background(.ultraThinMaterial)
-            }
-            
-            // Action bar
-            VStack(spacing: 12) {
+                
                 Divider()
                 
                 HStack(spacing: 16) {
@@ -70,14 +68,15 @@ struct ImagePreviewView: View {
                     Button {
                         onConfirm(adjustedImage)
                     } label: {
-                        Label("Audit This Bill", systemImage: "magnifyingglass")
+                        Label("Upload", systemImage: "magnifyingglass")
                             .frame(maxWidth: .infinity)
                     }
                     .buttonStyle(.borderedProminent)
                     .controlSize(.large)
                 }
                 .padding(.horizontal)
-                .padding(.bottom, 8)
+                .padding(.vertical, 12)
+                .background(.background)
             }
         }
         .navigationTitle("Review")

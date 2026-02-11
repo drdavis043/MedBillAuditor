@@ -96,7 +96,7 @@ struct CaptureView: View {
                 DocumentPickerView(image: $capturedImage)
             }
             .onChange(of: capturedImage) { _, newImage in
-                if newImage != nil {
+                if newImage != nil && !showPreview {
                     showPreview = true
                 }
             }
@@ -188,6 +188,7 @@ struct CaptureView: View {
     // MARK: - Process Bill
     
     private func processBill(image: UIImage) {
+        guard !isProcessing else { return }
         isProcessing = true
         Task {
             do {
