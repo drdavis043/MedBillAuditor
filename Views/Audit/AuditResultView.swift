@@ -38,92 +38,106 @@ struct AuditResultView: View {
     }
     // MARK: - Start Audit
     private var startAuditView: some View {
-        VStack(spacing: 16) {
-            Image(systemName: "magnifyingglass.circle")
-                .font(.system(size: 64))
-                .foregroundStyle(.blue)
+        VStack(spacing: 20) {
+            Spacer().frame(height: 40)
+            ZStack {
+                Circle()
+                    .fill(.blue.opacity(0.08))
+                    .frame(width: 100, height: 100)
+                Image(systemName: "magnifyingglass.circle.fill")
+                    .font(.system(size: 52))
+                    .foregroundStyle(.blue)
+            }
             Text("Ready to Audit")
-                .font(.title2.bold())
+                .font(AppTheme.Typography.title)
             Text("We'll check \(bill.lineItems.count) line items against Medicare rates and common billing errors.")
+                .font(AppTheme.Typography.body)
                 .multilineTextAlignment(.center)
                 .foregroundStyle(.secondary)
+                .padding(.horizontal)
             Button {
                 runAudit()
             } label: {
                 Label("Start Audit", systemImage: "play.fill")
+                    .font(AppTheme.Typography.headline)
                     .frame(maxWidth: .infinity)
+                    .padding(.vertical, 4)
             }
             .buttonStyle(.borderedProminent)
             .controlSize(.large)
+            .padding(.horizontal)
+            .padding(.top, 8)
+            Spacer()
         }
-        .padding(.vertical, 40)
     }
     // MARK: - Auditing
     private var auditingView: some View {
-        VStack(spacing: 16) {
+        VStack(spacing: 20) {
+            Spacer().frame(height: 60)
             ProgressView()
                 .scaleEffect(1.5)
             Text("Analyzing your bill...")
-                .font(.headline)
+                .font(AppTheme.Typography.headline)
+            Text("Checking prices, duplicates, unbundling, upcoding, and balance billing")
+                .font(AppTheme.Typography.caption)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
+            Spacer()
         }
-        .padding(.vertical, 60)
     }
     // MARK: - Results
     @ViewBuilder
     private func resultContent(_ result: AuditResult) -> some View {
-        // Score card
         scoreCard(result)
-        // Summary
         if !result.summary.isEmpty {
             Text(result.summary)
-                .font(.subheadline)
+                .font(AppTheme.Typography.body)
                 .padding()
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .background(Color(.systemGray6))
-                .clipShape(RoundedRectangle(cornerRadius: 12))
+                .clipShape(RoundedRectangle(cornerRadius: AppTheme.Radius.medium))
         }
-        // Flags by severity
         let criticals = result.flags.filter { $0.severity == .critical }
         let warnings = result.flags.filter { $0.severity == .warning }
         let infos = result.flags.filter { $0.severity == .info }
         if !criticals.isEmpty {
-            flagSection(title: "Critical Issues", flags: criticals, color: .red)
+            flagSection(title: "Critical Issues", flags: criticals, color: AppTheme.Colors.danger)
         }
         if !warnings.isEmpty {
-            flagSection(title: "Warnings", flags: warnings, color: .orange)
+            flagSection(title: "Warnings", flags: warnings, color: AppTheme.Colors.warning)
         }
         if !infos.isEmpty {
-            flagSection(title: "Information", flags: infos, color: .blue)
+            flagSection(title: "Information", flags: infos, color: AppTheme.Colors.info)
         }
         if result.flags.isEmpty {
             VStack(spacing: 12) {
                 Image(systemName: "checkmark.seal.fill")
                     .font(.system(size: 48))
-                    .foregroundStyle(.green)
+                    .foregroundStyle(AppTheme.Colors.success)
                 Text("No Issues Found")
-                    .font(.title3.bold())
+                    .font(AppTheme.Typography.title)
                 Text("This bill appears to be within normal pricing ranges.")
                     .foregroundStyle(.secondary)
             }
             .padding(.vertical, 20)
         }
-        // Dispute button
         if result.recommendsDispute {
             Button {
                 showDisputeSheet = true
             } label: {
                 Label("Generate Dispute Letter", systemImage: "envelope.fill")
+                    .font(AppTheme.Typography.headline)
                     .frame(maxWidth: .infinity)
+                    .padding(.vertical, 4)
             }
             .buttonStyle(.borderedProminent)
-            .tint(.red)
+            .tint(AppTheme.Colors.danger)
             .controlSize(.large)
             .padding(.top, 8)
         }
     }
     private func scoreCard(_ result: AuditResult) -> some View {
         HStack(spacing: 20) {
-            // Risk score
             ZStack {
                 Circle()
                     .stroke(scoreColor(result.overallRiskScore).opacity(0.2), lineWidth: 8)
@@ -133,7 +147,7 @@ struct AuditResultView: View {
                     .rotationEffect(.degrees(-90))
                 VStack(spacing: 2) {
                     Text("\(result.overallRiskScore)")
-                        .font(.title.bold())
+                        .font(.system(.title, design: .rounded, weight: .bold))
                     Text("Risk")
                         .font(.caption2)
                         .foregroundStyle(.secondary)
@@ -141,37 +155,31 @@ struct AuditResultView: View {
             }
             .frame(width: 80, height: 80)
             VStack(alignment: .leading, spacing: 8) {
-                HStack {
-                    Text("Potential Savings")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                    Spacer()
-                }
+                Text("Potential Savings")
+                    .font(AppTheme.Typography.caption)
+                    .foregroundStyle(.secondary)
                 Text(formatCurrency(result.totalEstimatedOvercharge))
-                    .font(.title2.bold())
-                    .foregroundStyle(result.totalEstimatedOvercharge > 0 ? .red : .primary)
+                    .font(.system(.title2, design: .rounded, weight: .bold))
+                    .foregroundStyle(result.totalEstimatedOvercharge > 0 ? AppTheme.Colors.danger : .primary)
                 HStack(spacing: 12) {
                     Label("\(result.flags.filter { $0.severity == .critical }.count)", systemImage: "exclamationmark.circle.fill")
-                        .foregroundStyle(.red)
+                        .foregroundStyle(AppTheme.Colors.danger)
                         .font(.caption)
                     Label("\(result.flags.filter { $0.severity == .warning }.count)", systemImage: "exclamationmark.triangle.fill")
-                        .foregroundStyle(.orange)
+                        .foregroundStyle(AppTheme.Colors.warning)
                         .font(.caption)
                     Label("\(result.flags.filter { $0.severity == .info }.count)", systemImage: "info.circle.fill")
-                        .foregroundStyle(.blue)
+                        .foregroundStyle(AppTheme.Colors.info)
                         .font(.caption)
                 }
             }
         }
-        .padding()
-        .background(.background)
-        .clipShape(RoundedRectangle(cornerRadius: 16))
-        .shadow(color: .black.opacity(0.05), radius: 8, y: 2)
+        .cardStyle()
     }
     private func flagSection(title: String, flags: [AuditFlag], color: Color) -> some View {
         VStack(alignment: .leading, spacing: 10) {
             Text(title)
-                .font(.headline)
+                .font(AppTheme.Typography.headline)
                 .foregroundStyle(color)
             ForEach(flags, id: \.id) { flag in
                 VStack(alignment: .leading, spacing: 6) {
@@ -181,23 +189,23 @@ struct AuditResultView: View {
                         Spacer()
                         if let impact = flag.estimatedImpact {
                             Text(formatCurrency(impact))
-                                .font(.subheadline.bold())
-                                .foregroundStyle(.red)
+                                .font(.system(.subheadline, design: .rounded, weight: .bold))
+                                .foregroundStyle(AppTheme.Colors.danger)
                         }
                     }
                     Text(flag.explanation)
-                        .font(.caption)
+                        .font(AppTheme.Typography.caption)
                         .foregroundStyle(.secondary)
                     Text(flag.recommendation)
-                        .font(.caption)
-                        .foregroundStyle(.blue)
+                        .font(AppTheme.Typography.caption)
+                        .foregroundStyle(AppTheme.Colors.info)
                         .padding(.top, 2)
                 }
                 .padding()
                 .background(color.opacity(0.05))
-                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .clipShape(RoundedRectangle(cornerRadius: AppTheme.Radius.medium))
                 .overlay(
-                    RoundedRectangle(cornerRadius: 10)
+                    RoundedRectangle(cornerRadius: AppTheme.Radius.medium)
                         .stroke(color.opacity(0.2), lineWidth: 1)
                 )
             }
@@ -218,9 +226,9 @@ struct AuditResultView: View {
         }
     }
     private func scoreColor(_ score: Int) -> Color {
-        if score >= 50 { return .red }
-        if score >= 25 { return .orange }
-        return .green
+        if score >= 50 { return AppTheme.Colors.danger }
+        if score >= 25 { return AppTheme.Colors.warning }
+        return AppTheme.Colors.success
     }
     private func formatCurrency(_ value: Decimal) -> String {
         let formatter = NumberFormatter()

@@ -5,6 +5,7 @@
 //  Created by Derek Davis on 2/8/26.
 //
 import SwiftUI
+
 struct ProcessingView: View {
     @Binding var ocrResult: String?
     @State private var currentStep = 0
@@ -14,6 +15,7 @@ struct ProcessingView: View {
         ("doc.text.viewfinder", "Analyzing image..."),
         ("text.magnifyingglass", "Extracting text..."),
         ("checklist", "Identifying line items..."),
+        ("dollarsign.circle", "Comparing prices..."),
         ("checkmark.circle", "Done!"),
     ]
     
@@ -68,23 +70,30 @@ struct ProcessingView: View {
         .onAppear { simulateProgress() }
         .onChange(of: ocrResult) { _, result in
             if result != nil {
-                withAnimation {
-                    currentStep = steps.count - 1
-                    progress = 1.0
+                if currentStep < steps.count - 2 {
+                    withAnimation {
+                        currentStep = steps.count - 2
+                        progress = 0.9
+                    }
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                    withAnimation {
+                        currentStep = steps.count - 1
+                        progress = 1.0
+                    }
                 }
             }
         }
     }
     
     private func simulateProgress() {
-        // Animate through steps while OCR processes
         Task {
             for step in 0..<(steps.count - 1) {
-                try? await Task.sleep(for: .seconds(1.2))
+                try? await Task.sleep(for: .seconds(1.8))
                 guard ocrResult == nil else { return }
                 withAnimation(.easeInOut(duration: 0.4)) {
                     currentStep = step + 1
-                    progress = CGFloat(step + 1) / CGFloat(steps.count)
+                    progress = CGFloat(step + 1) / CGFloat(steps.count - 1)
                 }
             }
         }
