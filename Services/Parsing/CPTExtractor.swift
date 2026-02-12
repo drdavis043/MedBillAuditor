@@ -12,12 +12,15 @@ struct CPTExtractor {
     
     /// All extracted codes from a line of text.
     func extract(from text: String) -> [ExtractedCode] {
+        // Pre-normalize dental codes: OCR reads "D0" as "DO"
+        let normalized = normalizeDentalCodes(text)
+        
         var codes: [ExtractedCode] = []
         
         // Hospital format: 6-digit codes with leading zero (e.g., 036415, 080053)
         let leadingZeroPattern = "\\b0(\\d{5})(?:-(\\w{2}))?\\b"
         codes.append(contentsOf: findCodes(
-            in: text,
+            in: normalized,
             pattern: leadingZeroPattern,
             type: .cpt,
             validator: isValidCPT
@@ -28,17 +31,17 @@ struct CPTExtractor {
         if codes.isEmpty {
             let cptPattern = "\\b(\\d{5})(?:-(\\w{2}))?\\b"
             codes.append(contentsOf: findCodes(
-                in: text,
+                in: normalized,
                 pattern: cptPattern,
                 type: .cpt,
                 validator: isValidCPT
             ))
         }
         
-        // HCPCS Level II: letter + 4 digits (e.g., J3301, A4556)
+        // HCPCS Level II: letter + 4 digits (e.g., J3301, A4556, D0120)
         let hcpcsPattern = "\\b([A-Z]\\d{4})(?:-(\\w{2}))?\\b"
         codes.append(contentsOf: findCodes(
-            in: text,
+            in: normalized,
             pattern: hcpcsPattern,
             type: .hcpcs,
             validator: isValidHCPCS
@@ -50,6 +53,21 @@ struct CPTExtractor {
     /// Checks if a line contains any medical billing code.
     func containsCode(_ text: String) -> Bool {
         !extract(from: text).isEmpty
+    }
+    
+    // MARK: - Dental Code Normalization
+    
+    /// OCR commonly misreads "D0" as "DO" in dental codes.
+    /// This normalizes patterns like DO120 → D0120, DO274 → D0274.
+    private func normalizeDentalCodes(_ text: String) -> String {
+        var result = text
+        // "DO" followed by 3 digits = dental code with misread zero
+        result = result.replacingOccurrences(
+            of: "\\bDO(\\d{3})\\b",
+            with: "D0$1",
+            options: .regularExpression
+        )
+        return result
     }
     
     // MARK: - Private

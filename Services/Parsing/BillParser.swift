@@ -15,8 +15,16 @@ struct BillParser {
     /// Main entry point: takes raw OCR text and returns structured line items.
     func parse(_ rawText: String) -> ParsedBill {
         let lines = preprocessLines(rawText)
+        let isEOB = detectEOBFormat(lines)
         let sections = identifySections(lines)
-        let lineItems = extractLineItems(from: sections)
+        let lineItems: [ParsedLineItem]
+        
+        if isEOB {
+            lineItems = extractEOBLineItems(from: sections)
+        } else {
+            lineItems = extractLineItems(from: sections)
+        }
+        
         let billInfo = extractBillInfo(from: sections)
         
         return ParsedBill(
@@ -57,9 +65,46 @@ struct BillParser {
             with: "$$$1",
             options: .regularExpression
         )
-        // Fix bare amounts at end of line without $ (e.g., "525.00" should be "$25.00" or "$525.00")
-        // Only add $ if the line also contains medical terms
         return result
+    }
+    
+    // MARK: - EOB Detection
+    
+    /// Detects if the bill is an EOB (Explanation of Benefits) format
+    /// with multiple dollar amount columns (Billed, Allowed, Adjustment, Ins Paid, You Owe).
+    private func detectEOBFormat(_ lines: [String]) -> Bool {
+        let eobKeywords = [
+            "allowed", "adjustment", "ins paid", "insurance paid",
+            "you owe", "patient resp", "copay", "coinsurance",
+            "plan paid", "member resp", "deductible applied"
+        ]
+        
+        let headerKeywords = [
+            "billed", "charged", "amount"
+        ]
+        
+        // Check if column headers contain EOB-specific terms
+        for line in lines.prefix(30) {
+            let lower = line.lowercased()
+            let eobMatches = eobKeywords.filter { lower.contains($0) }.count
+            let headerMatches = headerKeywords.filter { lower.contains($0) }.count
+            
+            // If a single line has 2+ EOB keywords, or 1 EOB + 1 header keyword
+            if eobMatches >= 2 || (eobMatches >= 1 && headerMatches >= 1) {
+                return true
+            }
+        }
+        
+        // Also check for "insurance summary" or "explanation of benefits" in title
+        for line in lines.prefix(15) {
+            let lower = line.lowercased()
+            if lower.contains("insurance summary") || lower.contains("explanation of benefits") ||
+               lower.contains("eob") || lower.contains("with insurance") {
+                return true
+            }
+        }
+        
+        return false
     }
     
     // MARK: - Step 2: Section Identification
@@ -110,9 +155,8 @@ struct BillParser {
             } else if lower.contains("patient resp") || lower.contains("amount due") || lower.contains("balance due") {
                 currentSection = .patientResponsibility
             } else if lower.contains("payments and adjustments") || lower.contains("please mail") {
-                // Footer — stop processing charges
                 if currentSection == .charges {
-                    currentSection = .header  // Just stop adding to charges
+                    currentSection = .header
                 }
                 continue
             }
@@ -156,14 +200,12 @@ struct BillParser {
     }
     
     private func isRevCodeHeader(_ line: String) -> Bool {
-        // "0300 - LABORATORY" format
         line.range(of: "^0\\d{3}\\s*-\\s*[A-Z]", options: .regularExpression) != nil
     }
     
     /// Detects all-caps category headers like "EMERGENCY ROOM-GENERAL", "LABORATORY-GENERAL"
     private func isCategoryHeader(_ line: String) -> Bool {
         let trimmed = line.trimmingCharacters(in: .whitespaces)
-        // Must be mostly uppercase letters/hyphens/spaces, no dollar amounts, no dates
         guard trimmed.count > 5 && trimmed.count < 120 else { return false }
         guard !chargeExtractor.containsDollarAmount(trimmed) else { return false }
         guard trimmed.range(of: "\\d{1,2}/\\d{1,2}/\\d{2}", options: .regularExpression) == nil else { return false }
@@ -175,7 +217,8 @@ struct BillParser {
             "GENERAL", "ROOM", "LABORATORY", "PHARMACY", "THERAPY",
             "THERAPEUTIC", "DIAGNOSTIC", "EXTENSION", "SERVICES",
             "EMERGENCY", "RADIOLOGY", "RESPIRATORY", "HEMATOLOGY",
-            "CHEMISTRY", "SURGERY", "ANESTHESIA", "SUPPLY", "DRUG"
+            "CHEMISTRY", "SURGERY", "ANESTHESIA", "SUPPLY", "DRUG",
+            "BOARD"
         ]
         let hasKeyword = categoryKeywords.contains(where: { trimmed.contains($0) })
         
@@ -184,7 +227,9 @@ struct BillParser {
     
     /// Detects column header lines like "Svc Dt  Code  Description  Amount"
     private func isColumnHeader(_ line: String) -> Bool {
-        let headers = ["svc dt", "rev code", "description", "amount", "qty", "ndc", "cpt /", "hcpcs", "code"]
+        let headers = ["svc dt", "rev code", "description", "amount", "qty", "ndc",
+                       "cpt /", "hcpcs", "code", "charge", "billed", "allowed",
+                       "adjustment", "ins paid", "you owe"]
         let matchCount = headers.filter { line.contains($0) }.count
         return matchCount >= 3
     }
@@ -192,8 +237,16 @@ struct BillParser {
     private func isSubtotalOrTotal(_ line: String) -> Bool {
         line.contains("subtotal") || line.contains("total charge") ||
         line.contains("total amount") || line.contains("grand total") ||
-        line.contains("amount due") ||
-        (line.contains("total") && !line.contains("metabolic"))  // avoid "comprehensive metabolic panel"
+        line.contains("amount due") || line.contains("total due") ||
+        (line.hasPrefix("total") && !line.contains("metabolic"))
+    }
+    
+    /// Detects if a line is JUST a dollar amount (a subtotal value on its own line)
+    private func isStandaloneDollarAmount(_ line: String) -> Bool {
+        let stripped = line
+            .replacingOccurrences(of: "\\$[0-9,]+\\.[0-9]{2}", with: "", options: .regularExpression)
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+        return stripped.isEmpty
     }
     
     // MARK: - Step 3: Multi-Line Item Assembly
@@ -214,7 +267,18 @@ struct BillParser {
             if lower.contains("page ") && line.contains(where: { $0.isNumber }) { continue }
             if lower.contains("prohibit") || lower.contains("insurance payment") { continue }
             if lower.contains("please mail") || lower.contains("please call") { continue }
+            if lower.contains("payment is due") { continue }
             if line == "--" || line == "•" || line == ":" || line.count <= 1 { continue }
+            
+            // Skip standalone subtotal amounts (just a dollar amount on its own line)
+            // These are unlabeled subtotals like "$9,600.00" on their own line.
+            // Only skip if there's no accumulated context at all — if we have
+            // a description waiting, this amount might legitimately close that item.
+            if isStandaloneDollarAmount(line) {
+                if currentCodes.isEmpty && currentDescriptions.isEmpty {
+                    continue
+                }
+            }
             
             let codes = cptExtractor.extract(from: line)
             let amounts = chargeExtractor.extractAmounts(from: line)
@@ -238,18 +302,22 @@ struct BillParser {
                     .joined(separator: " ")
                     .trimmingCharacters(in: .whitespacesAndNewlines)
                 
-                let item = ParsedLineItem(
-                    cptCode: currentCodes.first(where: { $0.type == .cpt })?.code,
-                    hcpcsCode: currentCodes.first(where: { $0.type == .hcpcs })?.code,
-                    description: description.isEmpty ? "Unknown Service" : description,
-                    chargedAmount: amounts.first?.value ?? 0,
-                    allowedAmount: nil,
-                    adjustmentAmount: nil,
-                    paidAmount: nil,
-                    dateOfService: currentDate,
-                    modifier: currentCodes.first?.modifier
-                )
-                items.append(item)
+                // Only create an item if we have SOME meaningful content
+                // (not just a bare dollar amount with nothing else)
+                if !description.isEmpty || !currentCodes.isEmpty {
+                    let item = ParsedLineItem(
+                        cptCode: currentCodes.first(where: { $0.type == .cpt })?.code,
+                        hcpcsCode: currentCodes.first(where: { $0.type == .hcpcs })?.code,
+                        description: description.isEmpty ? "Unknown Service" : description,
+                        chargedAmount: amounts.first?.value ?? 0,
+                        allowedAmount: nil,
+                        adjustmentAmount: nil,
+                        paidAmount: nil,
+                        dateOfService: currentDate,
+                        modifier: currentCodes.first?.modifier
+                    )
+                    items.append(item)
+                }
                 
                 // Reset
                 currentCodes = []
@@ -268,6 +336,126 @@ struct BillParser {
                     }
                 }
             }
+        }
+        
+        return items
+    }
+    
+    // MARK: - Step 3b: EOB Line Item Extraction
+    
+    /// Extracts line items from EOB-format bills where each row has multiple dollar amounts.
+    /// Strategy: Group all dollar amounts between code/description lines and take the FIRST
+    /// amount as the billed charge, with additional amounts as allowed/paid/patient-owes.
+    private func extractEOBLineItems(from sections: BillSections) -> [ParsedLineItem] {
+        var items: [ParsedLineItem] = []
+        
+        // Collect all lines with their data
+        var currentCodes: [ExtractedCode] = []
+        var currentDate: Date?
+        var currentDescriptions: [String] = []
+        var currentAmounts: [Decimal] = []
+        
+        for line in sections.charges {
+            let lower = line.lowercased()
+            
+            // Skip noise
+            if isSubtotalOrTotal(lower) { continue }
+            if isCategoryHeader(line) { continue }
+            if lower.contains("page ") && line.contains(where: { $0.isNumber }) { continue }
+            if lower.contains("payment is due") { continue }
+            if lower.hasPrefix("total") { continue }
+            if line == "--" || line == "•" || line == ":" || line.count <= 1 { continue }
+            
+            let codes = cptExtractor.extract(from: line)
+            let amounts = chargeExtractor.extractAmounts(from: line)
+            let date = extractDate(from: line)
+            
+            // Collect amounts
+            for amount in amounts {
+                currentAmounts.append(amount.value)
+            }
+            
+            // Collect codes
+            if !codes.isEmpty {
+                currentCodes.append(contentsOf: codes)
+            }
+            
+            // Collect date
+            if let date = date {
+                currentDate = date
+            }
+            
+            // Collect description text
+            let desc = extractDescriptionFrom(line, removingCodes: codes, removingAmounts: amounts)
+            if !desc.isEmpty && desc.count > 2 {
+                currentDescriptions.append(desc)
+            }
+            
+            // Check if we have enough to form a complete item:
+            // We need at least a code or description AND enough amounts to represent a full row.
+            // EOB rows typically have 4-5 amounts. We flush when we see a new code/description
+            // appearing after we already have accumulated data.
+            let hasIdentifier = !currentCodes.isEmpty || !currentDescriptions.isEmpty
+            let hasEnoughAmounts = currentAmounts.count >= 3
+            
+            if hasIdentifier && hasEnoughAmounts {
+                // Check if the NEXT iteration might add more to this item.
+                // For safety, flush when we have ≥ 5 amounts (a full EOB row).
+                if currentAmounts.count >= 5 {
+                    let description = currentDescriptions
+                        .filter { !$0.isEmpty }
+                        .joined(separator: " ")
+                        .trimmingCharacters(in: .whitespacesAndNewlines)
+                    
+                    let billedAmount = currentAmounts[0]
+                    let allowedAmount = currentAmounts.count > 1 ? currentAmounts[1] : nil
+                    let paidAmount = currentAmounts.count > 3 ? currentAmounts[3] : nil
+                    let patientOwes = currentAmounts.count > 4 ? currentAmounts[4] :
+                                     (currentAmounts.count > 1 ? currentAmounts.last : nil)
+                    
+                    let item = ParsedLineItem(
+                        cptCode: currentCodes.first(where: { $0.type == .cpt })?.code,
+                        hcpcsCode: currentCodes.first(where: { $0.type == .hcpcs })?.code,
+                        description: description.isEmpty ? "Unknown Service" : description,
+                        chargedAmount: billedAmount,
+                        allowedAmount: allowedAmount,
+                        adjustmentAmount: currentAmounts.count > 2 ? currentAmounts[2] : nil,
+                        paidAmount: paidAmount,
+                        dateOfService: currentDate,
+                        modifier: nil
+                    )
+                    items.append(item)
+                    
+                    // Reset
+                    currentCodes = []
+                    currentDate = nil
+                    currentDescriptions = []
+                    currentAmounts = []
+                }
+            }
+        }
+        
+        // Flush any remaining item
+        if !currentCodes.isEmpty || !currentDescriptions.isEmpty, !currentAmounts.isEmpty {
+            let description = currentDescriptions
+                .filter { !$0.isEmpty }
+                .joined(separator: " ")
+                .trimmingCharacters(in: .whitespacesAndNewlines)
+            
+            let billedAmount = currentAmounts[0]
+            
+            let item = ParsedLineItem(
+                cptCode: currentCodes.first(where: { $0.type == .cpt })?.code,
+                hcpcsCode: currentCodes.first(where: { $0.type == .hcpcs })?.code,
+                description: description.isEmpty ? "Unknown Service" : description,
+                chargedAmount: billedAmount,
+                allowedAmount: currentAmounts.count > 1 ? currentAmounts[1] : nil,
+                adjustmentAmount: currentAmounts.count > 2 ? currentAmounts[2] : nil,
+                paidAmount: currentAmounts.count > 3 ? currentAmounts[3] : nil,
+                dateOfService: currentDate,
+                modifier: nil
+            )
+            items.append(item)
         }
         
         return items
@@ -334,6 +522,13 @@ struct BillParser {
             options: .regularExpression
         )
         
+        // Remove "HO " prefix (OCR misread of "HC ")
+        desc = desc.replacingOccurrences(
+            of: "^\\s*HO\\s+",
+            with: "",
+            options: .regularExpression
+        )
+        
         desc = desc
             .replacingOccurrences(of: "\\s{2,}", with: " ", options: .regularExpression)
             .trimmingCharacters(in: CharacterSet.whitespacesAndNewlines.union(CharacterSet(charactersIn: ".-•:,|")))
@@ -390,9 +585,11 @@ struct BillParser {
                                 lower.contains("july") || lower.contains("august") ||
                                 lower.contains("september") || lower.contains("october") ||
                                 lower.contains("november") || lower.contains("december")
+                let isNPI = lower.contains("npi")
+                let isStatement = lower.contains("statement") || lower.contains("billing")
                 
                 if !hasAddress && !hasPhone && !isDate && !isNumber && !isZipLine &&
-                   !isCityState && !isPersonName && !isDateLine &&
+                   !isCityState && !isPersonName && !isDateLine && !isNPI && !isStatement &&
                    line.count > 3 && line.count < 80 {
                     info.providerName = line
                 }
@@ -418,7 +615,8 @@ struct BillParser {
             }
             
             // Patient name from "Patient: Jane R. Doe" format
-            if lower.contains("patient:") || lower.contains("patient :") {
+            if lower.contains("patient:") || lower.contains("patient :") ||
+               lower.contains("patient name:") {
                 let parts = line.components(separatedBy: ":")
                 if parts.count > 1 {
                     let name = parts[1].trimmingCharacters(in: .whitespaces)
@@ -446,7 +644,8 @@ struct BillParser {
         for line in sections.totals {
             let lower = line.lowercased()
             if lower.contains("total charge") || lower.contains("grand total") ||
-               lower.contains("total amount") {
+               lower.contains("total amount") || lower.contains("total due") ||
+               lower.contains("total:") {
                 let amounts = chargeExtractor.extractAmounts(from: line)
                 if let amount = amounts.last {
                     info.totalCharged = amount.value
@@ -465,7 +664,7 @@ struct BillParser {
             info.totalCharged = runningTotal
         }
         
-        // If still no total, check for "total" in charges that might have slipped through
+        // If still no total, check for any amount in totals
         if info.totalCharged == 0 {
             for line in sections.totals {
                 let amounts = chargeExtractor.extractAmounts(from: line)
