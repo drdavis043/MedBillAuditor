@@ -1,0 +1,442 @@
+[
+  {
+    "code": "10060",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "10061",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "27130",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "27447",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "36415",
+    "maxUnits": 3,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "43235",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "43239",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "45378",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "45380",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "45385",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "66984",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "70450",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "70551",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "71045",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "71046",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "72141",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "72148",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "74176",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "74177",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "80047",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "80048",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "80050",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "80051",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "80053",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "80055",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "80061",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "80069",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "80076",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "80081",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "81001",
+    "maxUnits": 2,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "81002",
+    "maxUnits": 2,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "81003",
+    "maxUnits": 2,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "82947",
+    "maxUnits": 2,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "83036",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "84443",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "85025",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "85027",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "90471",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "90472",
+    "maxUnits": 3,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "90791",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "90792",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "90832",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "90834",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "90837",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "93000",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "93005",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "93010",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "93306",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "93307",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "96372",
+    "maxUnits": 4,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "96374",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "97110",
+    "maxUnits": 4,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "97112",
+    "maxUnits": 4,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "97116",
+    "maxUnits": 4,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "97140",
+    "maxUnits": 4,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "97161",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "97162",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "97163",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "97164",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "97530",
+    "maxUnits": 4,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "97535",
+    "maxUnits": 4,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "98940",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "98941",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "98942",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "99202",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "99203",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "99204",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "99205",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "99211",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "99212",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "99213",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "99214",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "99215",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "99221",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "99222",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "99223",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "99231",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "99232",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "99233",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "99238",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "99239",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "99281",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "99282",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "99283",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "99284",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "99285",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "99291",
+    "maxUnits": 1,
+    "rationale": "CMS MUE limit"
+  },
+  {
+    "code": "99292",
+    "maxUnits": 4,
+    "rationale": "CMS MUE limit"
+  }
+]

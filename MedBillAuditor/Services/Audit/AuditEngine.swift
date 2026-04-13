@@ -15,27 +15,30 @@ final class AuditEngine {
     private let unbundlingChecker: UnbundlingChecker
     private let upcodingChecker: UpcodingChecker
     private let balanceBillingChecker: BalanceBillingChecker
-    
+    private let quantityChecker: QuantityChecker
+
     init(pricingService: PricingService) {
         self.priceChecker = PriceChecker(pricingService: pricingService)
         self.duplicateChecker = DuplicateChecker()
         self.unbundlingChecker = UnbundlingChecker()
         self.upcodingChecker = UpcodingChecker()
         self.balanceBillingChecker = BalanceBillingChecker()
+        self.quantityChecker = QuantityChecker()
     }
-    
+
     func audit(bill: MedicalBill) async -> AuditResult {
         let result = AuditResult()
-        
+
         // Run all checkers concurrently
         async let priceFlags = priceChecker.check(bill.lineItems)
         async let dupeFlags = duplicateChecker.check(bill.lineItems)
         async let unbundleFlags = unbundlingChecker.check(bill.lineItems)
         async let upcodeFlags = upcodingChecker.check(bill.lineItems)
         async let balanceFlags = balanceBillingChecker.check(bill.lineItems)
-        
+        async let quantityFlags = quantityChecker.check(bill.lineItems)
+
         let allFlags = await priceFlags + dupeFlags + unbundleFlags
-                     + upcodeFlags + balanceFlags
+                     + upcodeFlags + balanceFlags + quantityFlags
         
         result.flags = allFlags
         result.totalEstimatedOvercharge = allFlags

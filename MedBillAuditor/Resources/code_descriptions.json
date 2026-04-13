@@ -1,0 +1,2657 @@
+[
+  {
+    "code": "00100",
+    "description": "Anesthesia for Salivary Gland Surgery",
+    "category": "anesthesia"
+  },
+  {
+    "code": "00140",
+    "description": "Anesthesia for Eye Surgery",
+    "category": "anesthesia"
+  },
+  {
+    "code": "00300",
+    "description": "Anesthesia for Head/Neck Surgery",
+    "category": "anesthesia"
+  },
+  {
+    "code": "00400",
+    "description": "Anesthesia for Chest Wall Surgery",
+    "category": "anesthesia"
+  },
+  {
+    "code": "00520",
+    "description": "Anesthesia for Chest Surgery",
+    "category": "anesthesia"
+  },
+  {
+    "code": "00540",
+    "description": "Anesthesia for Thoracotomy",
+    "category": "anesthesia"
+  },
+  {
+    "code": "00600",
+    "description": "Anesthesia for Spine Surgery, Cervical",
+    "category": "anesthesia"
+  },
+  {
+    "code": "00670",
+    "description": "Anesthesia for Spine Surgery, Thoracic",
+    "category": "anesthesia"
+  },
+  {
+    "code": "00740",
+    "description": "Anesthesia for Upper GI Surgery",
+    "category": "anesthesia"
+  },
+  {
+    "code": "00810",
+    "description": "Anesthesia for Lower GI Surgery",
+    "category": "anesthesia"
+  },
+  {
+    "code": "00840",
+    "description": "Anesthesia for Abdominal Wall Surgery",
+    "category": "anesthesia"
+  },
+  {
+    "code": "01214",
+    "description": "Anesthesia for Total Hip Replacement",
+    "category": "anesthesia"
+  },
+  {
+    "code": "01402",
+    "description": "Anesthesia for Knee Arthroscopy",
+    "category": "anesthesia"
+  },
+  {
+    "code": "01480",
+    "description": "Anesthesia for Lower Leg Surgery",
+    "category": "anesthesia"
+  },
+  {
+    "code": "01630",
+    "description": "Anesthesia for Shoulder Surgery",
+    "category": "anesthesia"
+  },
+  {
+    "code": "01996",
+    "description": "Daily Hospital Management of Epidural",
+    "category": "anesthesia"
+  },
+  {
+    "code": "10060",
+    "description": "Incision & Drainage of Abscess (Simple)",
+    "category": "surgery"
+  },
+  {
+    "code": "10061",
+    "description": "Incision & Drainage of Abscess (Complex)",
+    "category": "surgery"
+  },
+  {
+    "code": "10120",
+    "description": "Removal of Foreign Body, Skin (Simple)",
+    "category": "surgery"
+  },
+  {
+    "code": "10140",
+    "description": "Incision & Drainage of Hematoma",
+    "category": "surgery"
+  },
+  {
+    "code": "10160",
+    "description": "Aspiration of Abscess/Cyst",
+    "category": "surgery"
+  },
+  {
+    "code": "11042",
+    "description": "Wound Debridement (Subcutaneous)",
+    "category": "surgery"
+  },
+  {
+    "code": "11043",
+    "description": "Wound Debridement (Muscle/Fascia)",
+    "category": "surgery"
+  },
+  {
+    "code": "11044",
+    "description": "Wound Debridement (Bone)",
+    "category": "surgery"
+  },
+  {
+    "code": "11055",
+    "description": "Trimming of Skin Lesion (1 lesion)",
+    "category": "dermatology"
+  },
+  {
+    "code": "11056",
+    "description": "Trimming of Skin Lesion (2-4 lesions)",
+    "category": "dermatology"
+  },
+  {
+    "code": "11102",
+    "description": "Skin Biopsy, Tangential",
+    "category": "dermatology"
+  },
+  {
+    "code": "11104",
+    "description": "Skin Biopsy, Punch",
+    "category": "dermatology"
+  },
+  {
+    "code": "11106",
+    "description": "Skin Biopsy, Incisional",
+    "category": "dermatology"
+  },
+  {
+    "code": "11200",
+    "description": "Skin Tag Removal (up to 15)",
+    "category": "dermatology"
+  },
+  {
+    "code": "11300",
+    "description": "Shave Removal of Skin Lesion (0.5 cm or less)",
+    "category": "dermatology"
+  },
+  {
+    "code": "11305",
+    "description": "Shave Removal of Scalp/Neck Lesion (0.5 cm or less)",
+    "category": "dermatology"
+  },
+  {
+    "code": "11400",
+    "description": "Excision of Skin Lesion (0.5 cm or less)",
+    "category": "dermatology"
+  },
+  {
+    "code": "11600",
+    "description": "Excision of Malignant Lesion (0.5 cm or less)",
+    "category": "dermatology"
+  },
+  {
+    "code": "11721",
+    "description": "Debridement of Nails (6 or more)",
+    "category": "dermatology"
+  },
+  {
+    "code": "11730",
+    "description": "Removal of Nail Plate (Partial/Complete)",
+    "category": "dermatology"
+  },
+  {
+    "code": "11750",
+    "description": "Permanent Nail Removal",
+    "category": "dermatology"
+  },
+  {
+    "code": "12001",
+    "description": "Simple Wound Repair (2.5 cm or less)",
+    "category": "surgery"
+  },
+  {
+    "code": "12002",
+    "description": "Simple Wound Repair (2.6-7.5 cm)",
+    "category": "surgery"
+  },
+  {
+    "code": "12004",
+    "description": "Simple Wound Repair (7.6-12.5 cm)",
+    "category": "surgery"
+  },
+  {
+    "code": "12011",
+    "description": "Simple Wound Repair Face/Ears (2.5 cm or less)",
+    "category": "surgery"
+  },
+  {
+    "code": "12013",
+    "description": "Simple Wound Repair Face/Ears (2.6-5.0 cm)",
+    "category": "surgery"
+  },
+  {
+    "code": "12031",
+    "description": "Intermediate Wound Repair (2.5 cm or less)",
+    "category": "surgery"
+  },
+  {
+    "code": "12032",
+    "description": "Intermediate Wound Repair (2.6-7.5 cm)",
+    "category": "surgery"
+  },
+  {
+    "code": "12051",
+    "description": "Intermediate Wound Repair Face (2.5 cm or less)",
+    "category": "surgery"
+  },
+  {
+    "code": "17000",
+    "description": "Destruction of Premalignant Lesion (First)",
+    "category": "dermatology"
+  },
+  {
+    "code": "17003",
+    "description": "Destruction of Premalignant Lesion (Each Additional)",
+    "category": "dermatology"
+  },
+  {
+    "code": "17110",
+    "description": "Destruction of Warts (up to 14)",
+    "category": "dermatology"
+  },
+  {
+    "code": "17111",
+    "description": "Destruction of Warts (15 or more)",
+    "category": "dermatology"
+  },
+  {
+    "code": "17311",
+    "description": "Mohs Surgery, First Stage (Head/Neck)",
+    "category": "dermatology"
+  },
+  {
+    "code": "17312",
+    "description": "Mohs Surgery, Each Additional Stage",
+    "category": "dermatology"
+  },
+  {
+    "code": "20550",
+    "description": "Injection into Tendon/Ligament",
+    "category": "orthopedic"
+  },
+  {
+    "code": "20552",
+    "description": "Trigger Point Injection (1-2 muscles)",
+    "category": "orthopedic"
+  },
+  {
+    "code": "20553",
+    "description": "Trigger Point Injection (3+ muscles)",
+    "category": "orthopedic"
+  },
+  {
+    "code": "20600",
+    "description": "Joint Aspiration (Small Joint)",
+    "category": "orthopedic"
+  },
+  {
+    "code": "20605",
+    "description": "Joint Aspiration (Intermediate Joint)",
+    "category": "orthopedic"
+  },
+  {
+    "code": "20610",
+    "description": "Joint Aspiration/Injection (Major Joint)",
+    "category": "orthopedic"
+  },
+  {
+    "code": "20611",
+    "description": "Joint Aspiration/Injection (Major Joint, Ultrasound)",
+    "category": "orthopedic"
+  },
+  {
+    "code": "27130",
+    "description": "Total Hip Replacement",
+    "category": "orthopedic"
+  },
+  {
+    "code": "27447",
+    "description": "Total Knee Replacement",
+    "category": "orthopedic"
+  },
+  {
+    "code": "29826",
+    "description": "Shoulder Arthroscopy with Decompression",
+    "category": "orthopedic"
+  },
+  {
+    "code": "29881",
+    "description": "Knee Arthroscopy with Meniscectomy",
+    "category": "orthopedic"
+  },
+  {
+    "code": "36415",
+    "description": "Venipuncture (Blood Draw)",
+    "category": "laboratory"
+  },
+  {
+    "code": "36416",
+    "description": "Finger/Heel Capillary Blood Collection",
+    "category": "laboratory"
+  },
+  {
+    "code": "36556",
+    "description": "Central Venous Catheter Insertion (non-tunneled)",
+    "category": "vascular"
+  },
+  {
+    "code": "36558",
+    "description": "Central Venous Catheter Insertion (tunneled)",
+    "category": "vascular"
+  },
+  {
+    "code": "36561",
+    "description": "Port-a-Cath Insertion",
+    "category": "vascular"
+  },
+  {
+    "code": "36591",
+    "description": "Blood Draw from Central Line",
+    "category": "laboratory"
+  },
+  {
+    "code": "43235",
+    "description": "Upper GI Endoscopy (EGD), Diagnostic",
+    "category": "gastroenterology"
+  },
+  {
+    "code": "43239",
+    "description": "Upper GI Endoscopy with Biopsy",
+    "category": "gastroenterology"
+  },
+  {
+    "code": "45378",
+    "description": "Colonoscopy, Diagnostic",
+    "category": "gastroenterology"
+  },
+  {
+    "code": "45380",
+    "description": "Colonoscopy with Biopsy",
+    "category": "gastroenterology"
+  },
+  {
+    "code": "45385",
+    "description": "Colonoscopy with Polyp Removal (Snare)",
+    "category": "gastroenterology"
+  },
+  {
+    "code": "45388",
+    "description": "Colonoscopy with Polyp Removal (Ablation)",
+    "category": "gastroenterology"
+  },
+  {
+    "code": "49505",
+    "description": "Inguinal Hernia Repair",
+    "category": "surgery"
+  },
+  {
+    "code": "50590",
+    "description": "Lithotripsy (Kidney Stone Shock Wave)",
+    "category": "urology"
+  },
+  {
+    "code": "52000",
+    "description": "Cystoscopy, Diagnostic",
+    "category": "urology"
+  },
+  {
+    "code": "55700",
+    "description": "Prostate Biopsy",
+    "category": "urology"
+  },
+  {
+    "code": "58100",
+    "description": "Endometrial Biopsy",
+    "category": "ob_gyn"
+  },
+  {
+    "code": "58558",
+    "description": "Hysteroscopy with Biopsy",
+    "category": "ob_gyn"
+  },
+  {
+    "code": "58571",
+    "description": "Laparoscopic Hysterectomy (250g or less)",
+    "category": "ob_gyn"
+  },
+  {
+    "code": "58970",
+    "description": "Egg Retrieval (Oocyte Aspiration)",
+    "category": "fertility"
+  },
+  {
+    "code": "58974",
+    "description": "Embryo Transfer",
+    "category": "fertility"
+  },
+  {
+    "code": "59400",
+    "description": "Obstetric Care, Vaginal Delivery (Global)",
+    "category": "ob_gyn"
+  },
+  {
+    "code": "59510",
+    "description": "Obstetric Care, C-Section (Global)",
+    "category": "ob_gyn"
+  },
+  {
+    "code": "59610",
+    "description": "Obstetric Care, VBAC (Global)",
+    "category": "ob_gyn"
+  },
+  {
+    "code": "62322",
+    "description": "Lumbar Epidural Injection (without imaging)",
+    "category": "pain_management"
+  },
+  {
+    "code": "62323",
+    "description": "Lumbar Epidural Injection (with imaging)",
+    "category": "pain_management"
+  },
+  {
+    "code": "64483",
+    "description": "Transforaminal Epidural Injection, Lumbar",
+    "category": "pain_management"
+  },
+  {
+    "code": "64490",
+    "description": "Facet Joint Injection, Cervical (1st level)",
+    "category": "pain_management"
+  },
+  {
+    "code": "64493",
+    "description": "Facet Joint Injection, Lumbar (1st level)",
+    "category": "pain_management"
+  },
+  {
+    "code": "66821",
+    "description": "YAG Laser Capsulotomy (After Cataract)",
+    "category": "ophthalmology"
+  },
+  {
+    "code": "66984",
+    "description": "Cataract Surgery with Lens Implant",
+    "category": "ophthalmology"
+  },
+  {
+    "code": "67028",
+    "description": "Eye Injection (Intravitreal)",
+    "category": "ophthalmology"
+  },
+  {
+    "code": "69210",
+    "description": "Ear Wax Removal",
+    "category": "ent"
+  },
+  {
+    "code": "70030",
+    "description": "X-ray Eye for Foreign Body",
+    "category": "radiology"
+  },
+  {
+    "code": "70100",
+    "description": "X-ray Jaw (1-3 views)",
+    "category": "radiology"
+  },
+  {
+    "code": "70110",
+    "description": "X-ray Jaw (4+ views)",
+    "category": "radiology"
+  },
+  {
+    "code": "70150",
+    "description": "X-ray Facial Bones",
+    "category": "radiology"
+  },
+  {
+    "code": "70160",
+    "description": "X-ray Nasal Bones",
+    "category": "radiology"
+  },
+  {
+    "code": "70200",
+    "description": "X-ray Orbits",
+    "category": "radiology"
+  },
+  {
+    "code": "70210",
+    "description": "X-ray Sinuses (limited)",
+    "category": "radiology"
+  },
+  {
+    "code": "70220",
+    "description": "X-ray Sinuses (complete)",
+    "category": "radiology"
+  },
+  {
+    "code": "70250",
+    "description": "X-ray Skull (limited)",
+    "category": "radiology"
+  },
+  {
+    "code": "70260",
+    "description": "X-ray Skull (complete)",
+    "category": "radiology"
+  },
+  {
+    "code": "70328",
+    "description": "X-ray TMJ Joint",
+    "category": "radiology"
+  },
+  {
+    "code": "70360",
+    "description": "X-ray Neck Soft Tissue",
+    "category": "radiology"
+  },
+  {
+    "code": "70450",
+    "description": "CT Head/Brain without Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "70460",
+    "description": "CT Head/Brain with Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "70470",
+    "description": "CT Head/Brain Without Then With Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "70486",
+    "description": "CT Sinuses without Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "70490",
+    "description": "CT Neck without Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "70491",
+    "description": "CT Neck with Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "70540",
+    "description": "MRI Orbit/Face/Neck without Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "70551",
+    "description": "MRI Brain without Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "70552",
+    "description": "MRI Brain with Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "70553",
+    "description": "MRI Brain Without Then With Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "71045",
+    "description": "Chest X-ray (1 view)",
+    "category": "radiology"
+  },
+  {
+    "code": "71046",
+    "description": "Chest X-ray (2 views)",
+    "category": "radiology"
+  },
+  {
+    "code": "71047",
+    "description": "Chest X-ray (3 views)",
+    "category": "radiology"
+  },
+  {
+    "code": "71048",
+    "description": "Chest X-ray (4+ views)",
+    "category": "radiology"
+  },
+  {
+    "code": "71100",
+    "description": "X-ray Ribs (unilateral, 2 views)",
+    "category": "radiology"
+  },
+  {
+    "code": "71101",
+    "description": "X-ray Ribs (unilateral, incl chest)",
+    "category": "radiology"
+  },
+  {
+    "code": "71110",
+    "description": "X-ray Ribs (bilateral, 3 views)",
+    "category": "radiology"
+  },
+  {
+    "code": "71250",
+    "description": "CT Chest without Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "71260",
+    "description": "CT Chest with Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "71270",
+    "description": "CT Chest Without Then With Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "71275",
+    "description": "CT Angiography, Chest",
+    "category": "radiology"
+  },
+  {
+    "code": "71550",
+    "description": "MRI Chest without Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "72040",
+    "description": "X-ray Spine, Cervical (2-3 views)",
+    "category": "radiology"
+  },
+  {
+    "code": "72050",
+    "description": "X-ray Spine, Cervical (4-5 views)",
+    "category": "radiology"
+  },
+  {
+    "code": "72070",
+    "description": "X-ray Spine, Thoracic (2 views)",
+    "category": "radiology"
+  },
+  {
+    "code": "72100",
+    "description": "X-ray Spine, Lumbar (2-3 views)",
+    "category": "radiology"
+  },
+  {
+    "code": "72110",
+    "description": "X-ray Spine, Lumbar (4+ views)",
+    "category": "radiology"
+  },
+  {
+    "code": "72125",
+    "description": "CT Cervical Spine without Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "72131",
+    "description": "CT Lumbar Spine without Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "72141",
+    "description": "MRI Cervical Spine without Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "72146",
+    "description": "MRI Thoracic Spine without Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "72148",
+    "description": "MRI Lumbar Spine without Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "72156",
+    "description": "MRI Cervical Spine Without Then With Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "72157",
+    "description": "MRI Thoracic Spine Without Then With Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "72158",
+    "description": "MRI Lumbar Spine Without Then With Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "72170",
+    "description": "X-ray Pelvis (1-2 views)",
+    "category": "radiology"
+  },
+  {
+    "code": "72190",
+    "description": "X-ray Pelvis (3+ views)",
+    "category": "radiology"
+  },
+  {
+    "code": "72192",
+    "description": "CT Pelvis without Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "72193",
+    "description": "CT Pelvis with Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "72195",
+    "description": "MRI Pelvis without Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "72197",
+    "description": "MRI Pelvis Without Then With Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "73000",
+    "description": "X-ray Clavicle",
+    "category": "radiology"
+  },
+  {
+    "code": "73010",
+    "description": "X-ray Scapula",
+    "category": "radiology"
+  },
+  {
+    "code": "73020",
+    "description": "X-ray Shoulder (1 view)",
+    "category": "radiology"
+  },
+  {
+    "code": "73030",
+    "description": "X-ray Shoulder (2+ views)",
+    "category": "radiology"
+  },
+  {
+    "code": "73060",
+    "description": "X-ray Humerus (2+ views)",
+    "category": "radiology"
+  },
+  {
+    "code": "73070",
+    "description": "X-ray Elbow (2 views)",
+    "category": "radiology"
+  },
+  {
+    "code": "73080",
+    "description": "X-ray Elbow (3+ views)",
+    "category": "radiology"
+  },
+  {
+    "code": "73090",
+    "description": "X-ray Forearm (2 views)",
+    "category": "radiology"
+  },
+  {
+    "code": "73100",
+    "description": "X-ray Wrist (2 views)",
+    "category": "radiology"
+  },
+  {
+    "code": "73110",
+    "description": "X-ray Wrist (3+ views)",
+    "category": "radiology"
+  },
+  {
+    "code": "73120",
+    "description": "X-ray Hand (2 views)",
+    "category": "radiology"
+  },
+  {
+    "code": "73130",
+    "description": "X-ray Hand (3+ views)",
+    "category": "radiology"
+  },
+  {
+    "code": "73140",
+    "description": "X-ray Finger(s)",
+    "category": "radiology"
+  },
+  {
+    "code": "73221",
+    "description": "MRI Shoulder without Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "73222",
+    "description": "MRI Shoulder with Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "73223",
+    "description": "MRI Shoulder Without Then With Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "73501",
+    "description": "X-ray Hip (1 view)",
+    "category": "radiology"
+  },
+  {
+    "code": "73502",
+    "description": "X-ray Hip (2-3 views)",
+    "category": "radiology"
+  },
+  {
+    "code": "73503",
+    "description": "X-ray Hip (4+ views)",
+    "category": "radiology"
+  },
+  {
+    "code": "73521",
+    "description": "X-ray Hips Bilateral (2 views)",
+    "category": "radiology"
+  },
+  {
+    "code": "73551",
+    "description": "X-ray Femur (1 view)",
+    "category": "radiology"
+  },
+  {
+    "code": "73552",
+    "description": "X-ray Femur (2+ views)",
+    "category": "radiology"
+  },
+  {
+    "code": "73560",
+    "description": "X-ray Knee (1-2 views)",
+    "category": "radiology"
+  },
+  {
+    "code": "73562",
+    "description": "X-ray Knee (3 views)",
+    "category": "radiology"
+  },
+  {
+    "code": "73564",
+    "description": "X-ray Knee (4+ views)",
+    "category": "radiology"
+  },
+  {
+    "code": "73590",
+    "description": "X-ray Lower Leg (2 views)",
+    "category": "radiology"
+  },
+  {
+    "code": "73600",
+    "description": "X-ray Ankle (2 views)",
+    "category": "radiology"
+  },
+  {
+    "code": "73610",
+    "description": "X-ray Ankle (3+ views)",
+    "category": "radiology"
+  },
+  {
+    "code": "73620",
+    "description": "X-ray Foot (2 views)",
+    "category": "radiology"
+  },
+  {
+    "code": "73630",
+    "description": "X-ray Foot (3+ views)",
+    "category": "radiology"
+  },
+  {
+    "code": "73650",
+    "description": "X-ray Heel (2+ views)",
+    "category": "radiology"
+  },
+  {
+    "code": "73660",
+    "description": "X-ray Toe(s)",
+    "category": "radiology"
+  },
+  {
+    "code": "73700",
+    "description": "CT Lower Extremity without Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "73718",
+    "description": "MRI Lower Extremity without Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "73720",
+    "description": "MRI Lower Extremity Without Then With Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "73721",
+    "description": "MRI Knee without Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "73723",
+    "description": "MRI Knee Without Then With Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "74018",
+    "description": "X-ray Abdomen (1 view)",
+    "category": "radiology"
+  },
+  {
+    "code": "74019",
+    "description": "X-ray Abdomen (2 views)",
+    "category": "radiology"
+  },
+  {
+    "code": "74021",
+    "description": "X-ray Abdomen (3+ views)",
+    "category": "radiology"
+  },
+  {
+    "code": "74150",
+    "description": "CT Abdomen without Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "74160",
+    "description": "CT Abdomen with Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "74170",
+    "description": "CT Abdomen Without Then With Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "74176",
+    "description": "CT Abdomen and Pelvis without Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "74177",
+    "description": "CT Abdomen and Pelvis with Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "74178",
+    "description": "CT Abdomen/Pelvis Without Then With Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "74181",
+    "description": "MRI Abdomen without Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "74183",
+    "description": "MRI Abdomen Without Then With Contrast",
+    "category": "radiology"
+  },
+  {
+    "code": "76536",
+    "description": "Ultrasound Soft Tissue Head/Neck",
+    "category": "radiology"
+  },
+  {
+    "code": "76604",
+    "description": "Ultrasound Chest",
+    "category": "radiology"
+  },
+  {
+    "code": "76641",
+    "description": "Ultrasound Breast, Complete",
+    "category": "radiology"
+  },
+  {
+    "code": "76642",
+    "description": "Ultrasound Breast, Limited",
+    "category": "radiology"
+  },
+  {
+    "code": "76700",
+    "description": "Ultrasound Abdomen, Complete",
+    "category": "radiology"
+  },
+  {
+    "code": "76705",
+    "description": "Ultrasound Abdomen, Limited",
+    "category": "radiology"
+  },
+  {
+    "code": "76770",
+    "description": "Ultrasound Retroperitoneal, Complete",
+    "category": "radiology"
+  },
+  {
+    "code": "76775",
+    "description": "Ultrasound Retroperitoneal, Limited",
+    "category": "radiology"
+  },
+  {
+    "code": "76801",
+    "description": "OB Ultrasound, First Trimester",
+    "category": "radiology"
+  },
+  {
+    "code": "76805",
+    "description": "OB Ultrasound, Second/Third Trimester",
+    "category": "radiology"
+  },
+  {
+    "code": "76810",
+    "description": "OB Ultrasound, Twin/Multiple",
+    "category": "radiology"
+  },
+  {
+    "code": "76815",
+    "description": "OB Ultrasound, Limited",
+    "category": "radiology"
+  },
+  {
+    "code": "76817",
+    "description": "Transvaginal Ultrasound",
+    "category": "radiology"
+  },
+  {
+    "code": "76830",
+    "description": "Ultrasound Pelvis, Transvaginal",
+    "category": "radiology"
+  },
+  {
+    "code": "76856",
+    "description": "Ultrasound Pelvis, Complete",
+    "category": "radiology"
+  },
+  {
+    "code": "76857",
+    "description": "Ultrasound Pelvis, Limited",
+    "category": "radiology"
+  },
+  {
+    "code": "76870",
+    "description": "Ultrasound Scrotum",
+    "category": "radiology"
+  },
+  {
+    "code": "76881",
+    "description": "Ultrasound Joint, Complete",
+    "category": "radiology"
+  },
+  {
+    "code": "76882",
+    "description": "Ultrasound Joint, Limited",
+    "category": "radiology"
+  },
+  {
+    "code": "77065",
+    "description": "Mammogram, Screening (unilateral)",
+    "category": "radiology"
+  },
+  {
+    "code": "77066",
+    "description": "Mammogram, Screening (bilateral)",
+    "category": "radiology"
+  },
+  {
+    "code": "77067",
+    "description": "Mammogram, Screening (bilateral)",
+    "category": "radiology"
+  },
+  {
+    "code": "77385",
+    "description": "Radiation Treatment Delivery (IMRT, Simple)",
+    "category": "radiation"
+  },
+  {
+    "code": "77386",
+    "description": "Radiation Treatment Delivery (IMRT, Complex)",
+    "category": "radiation"
+  },
+  {
+    "code": "77412",
+    "description": "Radiation Treatment Delivery (3+ MeV)",
+    "category": "radiation"
+  },
+  {
+    "code": "77427",
+    "description": "Radiation Treatment Management (5 treatments)",
+    "category": "radiation"
+  },
+  {
+    "code": "80047",
+    "description": "Basic Metabolic Panel with Ionized Calcium",
+    "category": "laboratory"
+  },
+  {
+    "code": "80048",
+    "description": "Basic Metabolic Panel (BMP)",
+    "category": "laboratory"
+  },
+  {
+    "code": "80050",
+    "description": "General Health Panel",
+    "category": "laboratory"
+  },
+  {
+    "code": "80051",
+    "description": "Electrolyte Panel",
+    "category": "laboratory"
+  },
+  {
+    "code": "80053",
+    "description": "Comprehensive Metabolic Panel (CMP)",
+    "category": "laboratory"
+  },
+  {
+    "code": "80055",
+    "description": "Obstetric Panel",
+    "category": "laboratory"
+  },
+  {
+    "code": "80061",
+    "description": "Lipid Panel",
+    "category": "laboratory"
+  },
+  {
+    "code": "80069",
+    "description": "Renal Function Panel",
+    "category": "laboratory"
+  },
+  {
+    "code": "80074",
+    "description": "Acute Hepatitis Panel",
+    "category": "laboratory"
+  },
+  {
+    "code": "80076",
+    "description": "Hepatic Function Panel",
+    "category": "laboratory"
+  },
+  {
+    "code": "80081",
+    "description": "Obstetric Panel with HIV",
+    "category": "laboratory"
+  },
+  {
+    "code": "80307",
+    "description": "Drug Screen, Multiple Substances",
+    "category": "laboratory"
+  },
+  {
+    "code": "81001",
+    "description": "Urinalysis with Microscopy",
+    "category": "laboratory"
+  },
+  {
+    "code": "81002",
+    "description": "Urinalysis, Non-automated",
+    "category": "laboratory"
+  },
+  {
+    "code": "81003",
+    "description": "Urinalysis, Automated",
+    "category": "laboratory"
+  },
+  {
+    "code": "81025",
+    "description": "Urine Pregnancy Test",
+    "category": "laboratory"
+  },
+  {
+    "code": "81225",
+    "description": "CYP2C19 Gene Analysis",
+    "category": "genetics"
+  },
+  {
+    "code": "81240",
+    "description": "Factor V Leiden Mutation Analysis",
+    "category": "genetics"
+  },
+  {
+    "code": "81243",
+    "description": "FMR1 Gene Analysis (Fragile X)",
+    "category": "genetics"
+  },
+  {
+    "code": "81291",
+    "description": "MTHFR Gene Analysis",
+    "category": "genetics"
+  },
+  {
+    "code": "81479",
+    "description": "Unlisted Molecular Pathology",
+    "category": "genetics"
+  },
+  {
+    "code": "82040",
+    "description": "Albumin Blood Test",
+    "category": "laboratory"
+  },
+  {
+    "code": "82247",
+    "description": "Bilirubin, Total",
+    "category": "laboratory"
+  },
+  {
+    "code": "82248",
+    "description": "Bilirubin, Direct",
+    "category": "laboratory"
+  },
+  {
+    "code": "82310",
+    "description": "Calcium, Total",
+    "category": "laboratory"
+  },
+  {
+    "code": "82374",
+    "description": "Carbon Dioxide (CO2/Bicarbonate)",
+    "category": "laboratory"
+  },
+  {
+    "code": "82435",
+    "description": "Chloride Blood Test",
+    "category": "laboratory"
+  },
+  {
+    "code": "82465",
+    "description": "Cholesterol, Total",
+    "category": "laboratory"
+  },
+  {
+    "code": "82550",
+    "description": "CK/CPK (Creatine Kinase)",
+    "category": "laboratory"
+  },
+  {
+    "code": "82565",
+    "description": "Creatinine Blood Test",
+    "category": "laboratory"
+  },
+  {
+    "code": "82607",
+    "description": "Vitamin B-12 Level",
+    "category": "laboratory"
+  },
+  {
+    "code": "82728",
+    "description": "Ferritin Level",
+    "category": "laboratory"
+  },
+  {
+    "code": "82746",
+    "description": "Folic Acid Level",
+    "category": "laboratory"
+  },
+  {
+    "code": "82947",
+    "description": "Glucose Blood Test",
+    "category": "laboratory"
+  },
+  {
+    "code": "82962",
+    "description": "Glucose, Fingerstick (POC)",
+    "category": "laboratory"
+  },
+  {
+    "code": "83001",
+    "description": "FSH (Follicle Stimulating Hormone)",
+    "category": "laboratory"
+  },
+  {
+    "code": "83002",
+    "description": "LH (Luteinizing Hormone)",
+    "category": "laboratory"
+  },
+  {
+    "code": "83036",
+    "description": "Hemoglobin A1c",
+    "category": "laboratory"
+  },
+  {
+    "code": "83540",
+    "description": "Iron Level",
+    "category": "laboratory"
+  },
+  {
+    "code": "83615",
+    "description": "LDH (Lactate Dehydrogenase)",
+    "category": "laboratory"
+  },
+  {
+    "code": "83718",
+    "description": "HDL Cholesterol",
+    "category": "laboratory"
+  },
+  {
+    "code": "83721",
+    "description": "LDL Cholesterol, Direct",
+    "category": "laboratory"
+  },
+  {
+    "code": "84075",
+    "description": "Alkaline Phosphatase",
+    "category": "laboratory"
+  },
+  {
+    "code": "84132",
+    "description": "Potassium Blood Test",
+    "category": "laboratory"
+  },
+  {
+    "code": "84134",
+    "description": "Prealbumin",
+    "category": "laboratory"
+  },
+  {
+    "code": "84153",
+    "description": "PSA (Prostate Specific Antigen)",
+    "category": "laboratory"
+  },
+  {
+    "code": "84155",
+    "description": "Total Protein",
+    "category": "laboratory"
+  },
+  {
+    "code": "84295",
+    "description": "Sodium Blood Test",
+    "category": "laboratory"
+  },
+  {
+    "code": "84403",
+    "description": "Testosterone, Total",
+    "category": "laboratory"
+  },
+  {
+    "code": "84436",
+    "description": "Thyroxine (T4), Total",
+    "category": "laboratory"
+  },
+  {
+    "code": "84439",
+    "description": "Free T4 (Thyroxine)",
+    "category": "laboratory"
+  },
+  {
+    "code": "84443",
+    "description": "TSH (Thyroid Stimulating Hormone)",
+    "category": "laboratory"
+  },
+  {
+    "code": "84450",
+    "description": "AST (SGOT) Liver Enzyme",
+    "category": "laboratory"
+  },
+  {
+    "code": "84460",
+    "description": "ALT (SGPT) Liver Enzyme",
+    "category": "laboratory"
+  },
+  {
+    "code": "84478",
+    "description": "Triglycerides",
+    "category": "laboratory"
+  },
+  {
+    "code": "84520",
+    "description": "BUN (Blood Urea Nitrogen)",
+    "category": "laboratory"
+  },
+  {
+    "code": "84550",
+    "description": "Uric Acid Blood Test",
+    "category": "laboratory"
+  },
+  {
+    "code": "84702",
+    "description": "hCG Pregnancy Test, Quantitative",
+    "category": "laboratory"
+  },
+  {
+    "code": "84703",
+    "description": "hCG Pregnancy Test, Qualitative",
+    "category": "laboratory"
+  },
+  {
+    "code": "85004",
+    "description": "Automated Differential WBC Count",
+    "category": "laboratory"
+  },
+  {
+    "code": "85007",
+    "description": "Manual Differential WBC Count",
+    "category": "laboratory"
+  },
+  {
+    "code": "85014",
+    "description": "Hematocrit",
+    "category": "laboratory"
+  },
+  {
+    "code": "85018",
+    "description": "Hemoglobin",
+    "category": "laboratory"
+  },
+  {
+    "code": "85025",
+    "description": "CBC with Differential",
+    "category": "laboratory"
+  },
+  {
+    "code": "85027",
+    "description": "CBC without Differential",
+    "category": "laboratory"
+  },
+  {
+    "code": "85610",
+    "description": "PT (Prothrombin Time)",
+    "category": "laboratory"
+  },
+  {
+    "code": "85730",
+    "description": "PTT (Partial Thromboplastin Time)",
+    "category": "laboratory"
+  },
+  {
+    "code": "86140",
+    "description": "C-Reactive Protein (CRP)",
+    "category": "laboratory"
+  },
+  {
+    "code": "86200",
+    "description": "Cyclic Citrullinated Peptide Antibody",
+    "category": "laboratory"
+  },
+  {
+    "code": "86235",
+    "description": "Nuclear Antigen Antibody",
+    "category": "laboratory"
+  },
+  {
+    "code": "86300",
+    "description": "CA-125 Tumor Marker",
+    "category": "laboratory"
+  },
+  {
+    "code": "86308",
+    "description": "Mono Spot Test",
+    "category": "laboratory"
+  },
+  {
+    "code": "86580",
+    "description": "TB Skin Test (PPD)",
+    "category": "laboratory"
+  },
+  {
+    "code": "86592",
+    "description": "Syphilis Test (RPR/VDRL)",
+    "category": "laboratory"
+  },
+  {
+    "code": "86694",
+    "description": "Herpes Simplex Antibody",
+    "category": "laboratory"
+  },
+  {
+    "code": "86695",
+    "description": "Herpes Simplex Type 1 Antibody",
+    "category": "laboratory"
+  },
+  {
+    "code": "86696",
+    "description": "Herpes Simplex Type 2 Antibody",
+    "category": "laboratory"
+  },
+  {
+    "code": "86703",
+    "description": "HIV-1 and HIV-2 Antibody",
+    "category": "laboratory"
+  },
+  {
+    "code": "86762",
+    "description": "Rubella Antibody",
+    "category": "laboratory"
+  },
+  {
+    "code": "86765",
+    "description": "Rubeola (Measles) Antibody",
+    "category": "laboratory"
+  },
+  {
+    "code": "86803",
+    "description": "Hepatitis C Antibody",
+    "category": "laboratory"
+  },
+  {
+    "code": "87070",
+    "description": "Bacterial Culture, Any Source",
+    "category": "laboratory"
+  },
+  {
+    "code": "87077",
+    "description": "Bacterial Culture, Aerobic",
+    "category": "laboratory"
+  },
+  {
+    "code": "87081",
+    "description": "Bacterial Culture, Screen Only",
+    "category": "laboratory"
+  },
+  {
+    "code": "87086",
+    "description": "Urine Culture, Bacterial",
+    "category": "laboratory"
+  },
+  {
+    "code": "87088",
+    "description": "Urine Culture with Colony Count",
+    "category": "laboratory"
+  },
+  {
+    "code": "87205",
+    "description": "Gram Stain",
+    "category": "laboratory"
+  },
+  {
+    "code": "87210",
+    "description": "Wet Mount/KOH Prep",
+    "category": "laboratory"
+  },
+  {
+    "code": "87491",
+    "description": "Chlamydia DNA/RNA Test",
+    "category": "laboratory"
+  },
+  {
+    "code": "87591",
+    "description": "Gonorrhea DNA/RNA Test",
+    "category": "laboratory"
+  },
+  {
+    "code": "87804",
+    "description": "Influenza Rapid Test",
+    "category": "laboratory"
+  },
+  {
+    "code": "87880",
+    "description": "Strep A Rapid Test",
+    "category": "laboratory"
+  },
+  {
+    "code": "87900",
+    "description": "Drug Resistance Genotype Analysis",
+    "category": "laboratory"
+  },
+  {
+    "code": "88305",
+    "description": "Surgical Pathology (Biopsy Examination)",
+    "category": "pathology"
+  },
+  {
+    "code": "88312",
+    "description": "Special Stain (Immunohistochemistry)",
+    "category": "pathology"
+  },
+  {
+    "code": "88342",
+    "description": "Immunohistochemistry per Antibody",
+    "category": "pathology"
+  },
+  {
+    "code": "89250",
+    "description": "IVF Culture/Incubation",
+    "category": "fertility"
+  },
+  {
+    "code": "89251",
+    "description": "Assisted Hatching",
+    "category": "fertility"
+  },
+  {
+    "code": "89253",
+    "description": "Assisted Hatching of Oocytes",
+    "category": "fertility"
+  },
+  {
+    "code": "89254",
+    "description": "Oocyte ID from Follicular Fluid",
+    "category": "fertility"
+  },
+  {
+    "code": "89258",
+    "description": "Cryopreservation of Embryos",
+    "category": "fertility"
+  },
+  {
+    "code": "89268",
+    "description": "ICSI (Insemination of Oocytes)",
+    "category": "fertility"
+  },
+  {
+    "code": "90460",
+    "description": "Vaccine Administration (under 18, 1st component)",
+    "category": "vaccine"
+  },
+  {
+    "code": "90461",
+    "description": "Vaccine Administration (under 18, each additional)",
+    "category": "vaccine"
+  },
+  {
+    "code": "90471",
+    "description": "Immunization Administration (1st injection)",
+    "category": "vaccine"
+  },
+  {
+    "code": "90472",
+    "description": "Immunization Administration (each additional)",
+    "category": "vaccine"
+  },
+  {
+    "code": "90473",
+    "description": "Immunization Administration, Oral/Nasal (1st)",
+    "category": "vaccine"
+  },
+  {
+    "code": "90474",
+    "description": "Immunization Administration, Oral/Nasal (additional)",
+    "category": "vaccine"
+  },
+  {
+    "code": "90658",
+    "description": "Flu Vaccine (Quadrivalent)",
+    "category": "vaccine"
+  },
+  {
+    "code": "90662",
+    "description": "Flu Vaccine (High Dose, 65+)",
+    "category": "vaccine"
+  },
+  {
+    "code": "90670",
+    "description": "Pneumococcal Vaccine (PCV13)",
+    "category": "vaccine"
+  },
+  {
+    "code": "90707",
+    "description": "MMR Vaccine",
+    "category": "vaccine"
+  },
+  {
+    "code": "90715",
+    "description": "Tdap Vaccine",
+    "category": "vaccine"
+  },
+  {
+    "code": "90732",
+    "description": "Pneumococcal Vaccine (PPSV23)",
+    "category": "vaccine"
+  },
+  {
+    "code": "90750",
+    "description": "Shingles Vaccine (Recombinant)",
+    "category": "vaccine"
+  },
+  {
+    "code": "90791",
+    "description": "Psychiatric Diagnostic Evaluation",
+    "category": "mental_health"
+  },
+  {
+    "code": "90792",
+    "description": "Psychiatric Diagnostic Evaluation with Medical Services",
+    "category": "mental_health"
+  },
+  {
+    "code": "90832",
+    "description": "Psychotherapy (30 min)",
+    "category": "mental_health"
+  },
+  {
+    "code": "90834",
+    "description": "Psychotherapy (45 min)",
+    "category": "mental_health"
+  },
+  {
+    "code": "90837",
+    "description": "Psychotherapy (60 min)",
+    "category": "mental_health"
+  },
+  {
+    "code": "90838",
+    "description": "Psychotherapy (crisis, 60+ min)",
+    "category": "mental_health"
+  },
+  {
+    "code": "90839",
+    "description": "Psychotherapy for Crisis (First 60 min)",
+    "category": "mental_health"
+  },
+  {
+    "code": "90846",
+    "description": "Family Psychotherapy (without patient)",
+    "category": "mental_health"
+  },
+  {
+    "code": "90847",
+    "description": "Family Psychotherapy (with patient)",
+    "category": "mental_health"
+  },
+  {
+    "code": "90853",
+    "description": "Group Psychotherapy",
+    "category": "mental_health"
+  },
+  {
+    "code": "93000",
+    "description": "Electrocardiogram (ECG/EKG), Complete",
+    "category": "cardiology"
+  },
+  {
+    "code": "93005",
+    "description": "Electrocardiogram (ECG/EKG), Tracing Only",
+    "category": "cardiology"
+  },
+  {
+    "code": "93010",
+    "description": "Electrocardiogram (ECG/EKG), Interpretation",
+    "category": "cardiology"
+  },
+  {
+    "code": "93015",
+    "description": "Cardiovascular Stress Test",
+    "category": "cardiology"
+  },
+  {
+    "code": "93017",
+    "description": "Stress Test, Tracing Only",
+    "category": "cardiology"
+  },
+  {
+    "code": "93018",
+    "description": "Stress Test, Interpretation Only",
+    "category": "cardiology"
+  },
+  {
+    "code": "93306",
+    "description": "Echocardiogram, Complete with Doppler",
+    "category": "cardiology"
+  },
+  {
+    "code": "93307",
+    "description": "Echocardiogram, Complete (2D)",
+    "category": "cardiology"
+  },
+  {
+    "code": "93308",
+    "description": "Echocardiogram, Follow-up/Limited",
+    "category": "cardiology"
+  },
+  {
+    "code": "93320",
+    "description": "Doppler Echocardiography, Complete",
+    "category": "cardiology"
+  },
+  {
+    "code": "93350",
+    "description": "Stress Echocardiogram",
+    "category": "cardiology"
+  },
+  {
+    "code": "93458",
+    "description": "Left Heart Catheterization",
+    "category": "cardiology"
+  },
+  {
+    "code": "93459",
+    "description": "Left Heart Catheterization with Ventriculography",
+    "category": "cardiology"
+  },
+  {
+    "code": "93880",
+    "description": "Duplex Ultrasound Carotid Arteries",
+    "category": "vascular"
+  },
+  {
+    "code": "93925",
+    "description": "Duplex Ultrasound Lower Extremity Arteries",
+    "category": "vascular"
+  },
+  {
+    "code": "93926",
+    "description": "Duplex Ultrasound Lower Extremity Arteries (Limited)",
+    "category": "vascular"
+  },
+  {
+    "code": "93970",
+    "description": "Duplex Ultrasound Extremity Veins (Complete)",
+    "category": "vascular"
+  },
+  {
+    "code": "93971",
+    "description": "Duplex Ultrasound Extremity Veins (Limited)",
+    "category": "vascular"
+  },
+  {
+    "code": "94010",
+    "description": "Spirometry (Breathing Test)",
+    "category": "pulmonary"
+  },
+  {
+    "code": "94060",
+    "description": "Spirometry Before and After Bronchodilator",
+    "category": "pulmonary"
+  },
+  {
+    "code": "94375",
+    "description": "Respiratory Flow Volume Loop",
+    "category": "pulmonary"
+  },
+  {
+    "code": "94640",
+    "description": "Nebulizer Treatment",
+    "category": "pulmonary"
+  },
+  {
+    "code": "94664",
+    "description": "Inhaler Training/Demonstration",
+    "category": "pulmonary"
+  },
+  {
+    "code": "94726",
+    "description": "Lung Volume Measurement (Plethysmography)",
+    "category": "pulmonary"
+  },
+  {
+    "code": "94729",
+    "description": "Diffusing Capacity (DLCO)",
+    "category": "pulmonary"
+  },
+  {
+    "code": "94760",
+    "description": "Pulse Oximetry",
+    "category": "pulmonary"
+  },
+  {
+    "code": "95004",
+    "description": "Allergy Skin Prick Test (per test)",
+    "category": "allergy"
+  },
+  {
+    "code": "95024",
+    "description": "Allergy Intradermal Test (per test)",
+    "category": "allergy"
+  },
+  {
+    "code": "95115",
+    "description": "Allergy Injection (single)",
+    "category": "allergy"
+  },
+  {
+    "code": "95117",
+    "description": "Allergy Injection (two or more)",
+    "category": "allergy"
+  },
+  {
+    "code": "95165",
+    "description": "Allergy Immunotherapy (multi-dose vial prep)",
+    "category": "allergy"
+  },
+  {
+    "code": "95810",
+    "description": "Sleep Study (Polysomnography)",
+    "category": "sleep"
+  },
+  {
+    "code": "95811",
+    "description": "Sleep Study with CPAP Titration",
+    "category": "sleep"
+  },
+  {
+    "code": "95819",
+    "description": "EEG (Electroencephalogram), Awake and Asleep",
+    "category": "neurology"
+  },
+  {
+    "code": "95886",
+    "description": "EMG (Needle Electromyography)",
+    "category": "neurology"
+  },
+  {
+    "code": "95907",
+    "description": "Nerve Conduction Study (1-2 studies)",
+    "category": "neurology"
+  },
+  {
+    "code": "95908",
+    "description": "Nerve Conduction Study (3-4 studies)",
+    "category": "neurology"
+  },
+  {
+    "code": "95909",
+    "description": "Nerve Conduction Study (5-6 studies)",
+    "category": "neurology"
+  },
+  {
+    "code": "95910",
+    "description": "Nerve Conduction Study (7-8 studies)",
+    "category": "neurology"
+  },
+  {
+    "code": "95913",
+    "description": "Nerve Conduction Study (13+ studies)",
+    "category": "neurology"
+  },
+  {
+    "code": "96360",
+    "description": "IV Infusion (First Hour)",
+    "category": "infusion"
+  },
+  {
+    "code": "96361",
+    "description": "IV Infusion (Each Additional Hour)",
+    "category": "infusion"
+  },
+  {
+    "code": "96365",
+    "description": "IV Infusion Therapy (First Hour)",
+    "category": "infusion"
+  },
+  {
+    "code": "96366",
+    "description": "IV Infusion Therapy (Each Additional Hour)",
+    "category": "infusion"
+  },
+  {
+    "code": "96372",
+    "description": "Injection, Subcutaneous or Intramuscular",
+    "category": "infusion"
+  },
+  {
+    "code": "96374",
+    "description": "IV Push, Single Drug",
+    "category": "infusion"
+  },
+  {
+    "code": "96375",
+    "description": "IV Push, Each Additional Drug",
+    "category": "infusion"
+  },
+  {
+    "code": "96413",
+    "description": "Chemotherapy IV Infusion (First Hour)",
+    "category": "oncology"
+  },
+  {
+    "code": "96415",
+    "description": "Chemotherapy IV Infusion (Each Additional Hour)",
+    "category": "oncology"
+  },
+  {
+    "code": "96417",
+    "description": "Chemotherapy IV Infusion (Additional Sequential)",
+    "category": "oncology"
+  },
+  {
+    "code": "97110",
+    "description": "Therapeutic Exercise (15 min)",
+    "category": "physical_therapy"
+  },
+  {
+    "code": "97112",
+    "description": "Neuromuscular Re-education (15 min)",
+    "category": "physical_therapy"
+  },
+  {
+    "code": "97116",
+    "description": "Gait Training (15 min)",
+    "category": "physical_therapy"
+  },
+  {
+    "code": "97140",
+    "description": "Manual Therapy (15 min)",
+    "category": "physical_therapy"
+  },
+  {
+    "code": "97161",
+    "description": "PT Evaluation (Low Complexity)",
+    "category": "physical_therapy"
+  },
+  {
+    "code": "97162",
+    "description": "PT Evaluation (Moderate Complexity)",
+    "category": "physical_therapy"
+  },
+  {
+    "code": "97163",
+    "description": "PT Evaluation (High Complexity)",
+    "category": "physical_therapy"
+  },
+  {
+    "code": "97164",
+    "description": "PT Re-evaluation",
+    "category": "physical_therapy"
+  },
+  {
+    "code": "97530",
+    "description": "Therapeutic Activities (15 min)",
+    "category": "physical_therapy"
+  },
+  {
+    "code": "97535",
+    "description": "Self-Care Training (15 min)",
+    "category": "physical_therapy"
+  },
+  {
+    "code": "97542",
+    "description": "Wheelchair Management Training (15 min)",
+    "category": "physical_therapy"
+  },
+  {
+    "code": "97750",
+    "description": "Physical Performance Test",
+    "category": "physical_therapy"
+  },
+  {
+    "code": "98940",
+    "description": "Chiropractic Spinal Manipulation (1-2 regions)",
+    "category": "chiropractic"
+  },
+  {
+    "code": "98941",
+    "description": "Chiropractic Spinal Manipulation (3-4 regions)",
+    "category": "chiropractic"
+  },
+  {
+    "code": "98942",
+    "description": "Chiropractic Spinal Manipulation (5 regions)",
+    "category": "chiropractic"
+  },
+  {
+    "code": "98943",
+    "description": "Chiropractic Extraspinal Manipulation (1+ regions)",
+    "category": "chiropractic"
+  },
+  {
+    "code": "99024",
+    "description": "Post-Op Follow-Up Visit (included in surgery)",
+    "category": "miscellaneous"
+  },
+  {
+    "code": "99050",
+    "description": "After-Hours Service",
+    "category": "miscellaneous"
+  },
+  {
+    "code": "99053",
+    "description": "Service Between 10pm-8am",
+    "category": "miscellaneous"
+  },
+  {
+    "code": "99070",
+    "description": "Supplies and Materials",
+    "category": "miscellaneous"
+  },
+  {
+    "code": "99080",
+    "description": "Special Report/Forms Preparation",
+    "category": "miscellaneous"
+  },
+  {
+    "code": "99195",
+    "description": "Phlebotomy, Therapeutic",
+    "category": "miscellaneous"
+  },
+  {
+    "code": "99202",
+    "description": "New Patient Office Visit (Level 2)",
+    "category": "evaluation_management"
+  },
+  {
+    "code": "99203",
+    "description": "New Patient Office Visit (Level 3)",
+    "category": "evaluation_management"
+  },
+  {
+    "code": "99204",
+    "description": "New Patient Office Visit (Level 4)",
+    "category": "evaluation_management"
+  },
+  {
+    "code": "99205",
+    "description": "New Patient Office Visit (Level 5)",
+    "category": "evaluation_management"
+  },
+  {
+    "code": "99211",
+    "description": "Established Patient Office Visit (Level 1)",
+    "category": "evaluation_management"
+  },
+  {
+    "code": "99212",
+    "description": "Established Patient Office Visit (Level 2)",
+    "category": "evaluation_management"
+  },
+  {
+    "code": "99213",
+    "description": "Established Patient Office Visit (Level 3)",
+    "category": "evaluation_management"
+  },
+  {
+    "code": "99214",
+    "description": "Established Patient Office Visit (Level 4)",
+    "category": "evaluation_management"
+  },
+  {
+    "code": "99215",
+    "description": "Established Patient Office Visit (Level 5)",
+    "category": "evaluation_management"
+  },
+  {
+    "code": "99218",
+    "description": "Initial Observation Care (Level 1)",
+    "category": "hospital"
+  },
+  {
+    "code": "99219",
+    "description": "Initial Observation Care (Level 2)",
+    "category": "hospital"
+  },
+  {
+    "code": "99220",
+    "description": "Initial Observation Care (Level 3)",
+    "category": "hospital"
+  },
+  {
+    "code": "99221",
+    "description": "Initial Hospital Admission (Level 1)",
+    "category": "hospital"
+  },
+  {
+    "code": "99222",
+    "description": "Initial Hospital Admission (Level 2)",
+    "category": "hospital"
+  },
+  {
+    "code": "99223",
+    "description": "Initial Hospital Admission (Level 3)",
+    "category": "hospital"
+  },
+  {
+    "code": "99231",
+    "description": "Subsequent Hospital Visit (Level 1)",
+    "category": "hospital"
+  },
+  {
+    "code": "99232",
+    "description": "Subsequent Hospital Visit (Level 2)",
+    "category": "hospital"
+  },
+  {
+    "code": "99233",
+    "description": "Subsequent Hospital Visit (Level 3)",
+    "category": "hospital"
+  },
+  {
+    "code": "99238",
+    "description": "Hospital Discharge (30 minutes or less)",
+    "category": "hospital"
+  },
+  {
+    "code": "99239",
+    "description": "Hospital Discharge (over 30 minutes)",
+    "category": "hospital"
+  },
+  {
+    "code": "99241",
+    "description": "Office Consultation (Level 1)",
+    "category": "evaluation_management"
+  },
+  {
+    "code": "99242",
+    "description": "Office Consultation (Level 2)",
+    "category": "evaluation_management"
+  },
+  {
+    "code": "99243",
+    "description": "Office Consultation (Level 3)",
+    "category": "evaluation_management"
+  },
+  {
+    "code": "99244",
+    "description": "Office Consultation (Level 4)",
+    "category": "evaluation_management"
+  },
+  {
+    "code": "99245",
+    "description": "Office Consultation (Level 5)",
+    "category": "evaluation_management"
+  },
+  {
+    "code": "99281",
+    "description": "Emergency Room Visit (Level 1)",
+    "category": "emergency"
+  },
+  {
+    "code": "99282",
+    "description": "Emergency Room Visit (Level 2)",
+    "category": "emergency"
+  },
+  {
+    "code": "99283",
+    "description": "Emergency Room Visit (Level 3)",
+    "category": "emergency"
+  },
+  {
+    "code": "99284",
+    "description": "Emergency Room Visit (Level 4)",
+    "category": "emergency"
+  },
+  {
+    "code": "99285",
+    "description": "Emergency Room Visit (Level 5)",
+    "category": "emergency"
+  },
+  {
+    "code": "99291",
+    "description": "Critical Care First Hour",
+    "category": "hospital"
+  },
+  {
+    "code": "99292",
+    "description": "Critical Care Each Additional 30 min",
+    "category": "hospital"
+  },
+  {
+    "code": "99381",
+    "description": "Preventive Visit, New Patient (Infant)",
+    "category": "preventive"
+  },
+  {
+    "code": "99382",
+    "description": "Preventive Visit, New Patient (Age 1-4)",
+    "category": "preventive"
+  },
+  {
+    "code": "99383",
+    "description": "Preventive Visit, New Patient (Age 5-11)",
+    "category": "preventive"
+  },
+  {
+    "code": "99384",
+    "description": "Preventive Visit, New Patient (Age 12-17)",
+    "category": "preventive"
+  },
+  {
+    "code": "99385",
+    "description": "Preventive Visit, New Patient (Age 18-39)",
+    "category": "preventive"
+  },
+  {
+    "code": "99386",
+    "description": "Preventive Visit, New Patient (Age 40-64)",
+    "category": "preventive"
+  },
+  {
+    "code": "99387",
+    "description": "Preventive Visit, New Patient (Age 65+)",
+    "category": "preventive"
+  },
+  {
+    "code": "99391",
+    "description": "Preventive Visit, Established (Infant)",
+    "category": "preventive"
+  },
+  {
+    "code": "99392",
+    "description": "Preventive Visit, Established (Age 1-4)",
+    "category": "preventive"
+  },
+  {
+    "code": "99393",
+    "description": "Preventive Visit, Established (Age 5-11)",
+    "category": "preventive"
+  },
+  {
+    "code": "99394",
+    "description": "Preventive Visit, Established (Age 12-17)",
+    "category": "preventive"
+  },
+  {
+    "code": "99395",
+    "description": "Preventive Visit, Established (Age 18-39)",
+    "category": "preventive"
+  },
+  {
+    "code": "99396",
+    "description": "Preventive Visit, Established (Age 40-64)",
+    "category": "preventive"
+  },
+  {
+    "code": "99397",
+    "description": "Preventive Visit, Established (Age 65+)",
+    "category": "preventive"
+  },
+  {
+    "code": "99601",
+    "description": "Home Infusion, First 2 Hours",
+    "category": "infusion"
+  },
+  {
+    "code": "99602",
+    "description": "Home Infusion, Each Additional Hour",
+    "category": "infusion"
+  },
+  {
+    "code": "A0425",
+    "description": "Ground Ambulance, Mileage (per mile)",
+    "category": "ambulance"
+  },
+  {
+    "code": "A0427",
+    "description": "ALS Ambulance, Emergency Transport",
+    "category": "ambulance"
+  },
+  {
+    "code": "A0428",
+    "description": "BLS Ambulance, Emergency Transport",
+    "category": "ambulance"
+  },
+  {
+    "code": "A0429",
+    "description": "BLS Ambulance, Non-Emergency Transport",
+    "category": "ambulance"
+  },
+  {
+    "code": "A0433",
+    "description": "ALS Ambulance, Non-Emergency Transport (Level 2)",
+    "category": "ambulance"
+  },
+  {
+    "code": "A4206",
+    "description": "Syringe with Needle (1cc)",
+    "category": "supplies"
+  },
+  {
+    "code": "A4550",
+    "description": "Surgical Tray",
+    "category": "supplies"
+  },
+  {
+    "code": "A6250",
+    "description": "Wound Dressing, Skin Closure Strip",
+    "category": "supplies"
+  },
+  {
+    "code": "D0120",
+    "description": "Periodic Oral Exam",
+    "category": "dental"
+  },
+  {
+    "code": "D0140",
+    "description": "Limited Oral Exam (Problem-Focused)",
+    "category": "dental"
+  },
+  {
+    "code": "D0150",
+    "description": "Comprehensive Oral Exam",
+    "category": "dental"
+  },
+  {
+    "code": "D0210",
+    "description": "Full Mouth X-rays",
+    "category": "dental"
+  },
+  {
+    "code": "D0220",
+    "description": "Periapical X-ray (First)",
+    "category": "dental"
+  },
+  {
+    "code": "D0230",
+    "description": "Periapical X-ray (Each Additional)",
+    "category": "dental"
+  },
+  {
+    "code": "D0272",
+    "description": "Bitewing X-rays (2 films)",
+    "category": "dental"
+  },
+  {
+    "code": "D0274",
+    "description": "Bitewing X-rays (4 films)",
+    "category": "dental"
+  },
+  {
+    "code": "D0330",
+    "description": "Panoramic X-ray",
+    "category": "dental"
+  },
+  {
+    "code": "D1110",
+    "description": "Dental Cleaning (Adult)",
+    "category": "dental"
+  },
+  {
+    "code": "D1120",
+    "description": "Dental Cleaning (Child)",
+    "category": "dental"
+  },
+  {
+    "code": "D2750",
+    "description": "Dental Crown (Porcelain/Ceramic)",
+    "category": "dental"
+  },
+  {
+    "code": "D7140",
+    "description": "Simple Tooth Extraction",
+    "category": "dental"
+  },
+  {
+    "code": "D7210",
+    "description": "Surgical Tooth Extraction",
+    "category": "dental"
+  },
+  {
+    "code": "D7240",
+    "description": "Impacted Tooth Removal (Soft Tissue)",
+    "category": "dental"
+  },
+  {
+    "code": "G0151",
+    "description": "Home Health Skilled PT Visit",
+    "category": "home_health"
+  },
+  {
+    "code": "G0152",
+    "description": "Home Health Skilled OT Visit",
+    "category": "home_health"
+  },
+  {
+    "code": "G0153",
+    "description": "Home Health Skilled SLP Visit",
+    "category": "home_health"
+  },
+  {
+    "code": "G0154",
+    "description": "Home Health Skilled Nursing Visit",
+    "category": "home_health"
+  },
+  {
+    "code": "G0156",
+    "description": "Home Health Aide Visit",
+    "category": "home_health"
+  },
+  {
+    "code": "G0162",
+    "description": "Home Health Skilled RN Visit",
+    "category": "home_health"
+  },
+  {
+    "code": "G0299",
+    "description": "Home Health Skilled Nursing, Direct",
+    "category": "home_health"
+  },
+  {
+    "code": "G0300",
+    "description": "Home Health Skilled Nursing, Indirect",
+    "category": "home_health"
+  },
+  {
+    "code": "G0463",
+    "description": "Hospital Outpatient Clinic Visit",
+    "category": "hospital"
+  },
+  {
+    "code": "J0129",
+    "description": "Abatacept Injection (10mg)",
+    "category": "drug"
+  },
+  {
+    "code": "J0135",
+    "description": "Adalimumab Injection (20mg)",
+    "category": "drug"
+  },
+  {
+    "code": "J0171",
+    "description": "Adrenalin/Epinephrine Injection",
+    "category": "drug"
+  },
+  {
+    "code": "J0585",
+    "description": "Botulinum Toxin A (Botox, 1 unit)",
+    "category": "drug"
+  },
+  {
+    "code": "J0696",
+    "description": "Ceftriaxone Injection (250mg)",
+    "category": "drug"
+  },
+  {
+    "code": "J0702",
+    "description": "Betamethasone Injection (3mg)",
+    "category": "drug"
+  },
+  {
+    "code": "J1030",
+    "description": "Methylprednisolone Injection (40mg)",
+    "category": "drug"
+  },
+  {
+    "code": "J1040",
+    "description": "Methylprednisolone Injection (80mg)",
+    "category": "drug"
+  },
+  {
+    "code": "J1050",
+    "description": "Medroxyprogesterone Injection (1mg)",
+    "category": "drug"
+  },
+  {
+    "code": "J1071",
+    "description": "Testosterone Injection (1mg)",
+    "category": "drug"
+  },
+  {
+    "code": "J1100",
+    "description": "Dexamethasone Injection (1mg)",
+    "category": "drug"
+  },
+  {
+    "code": "J1170",
+    "description": "Hydromorphone Injection (up to 4mg)",
+    "category": "drug"
+  },
+  {
+    "code": "J1200",
+    "description": "Diphenhydramine (Benadryl) Injection (50mg)",
+    "category": "drug"
+  },
+  {
+    "code": "J1885",
+    "description": "Ketorolac (Toradol) Injection (15mg)",
+    "category": "drug"
+  },
+  {
+    "code": "J2001",
+    "description": "Lidocaine Injection (10mg)",
+    "category": "drug"
+  },
+  {
+    "code": "J2175",
+    "description": "Meperidine (Demerol) Injection (100mg)",
+    "category": "drug"
+  },
+  {
+    "code": "J2250",
+    "description": "Midazolam Injection (1mg)",
+    "category": "drug"
+  },
+  {
+    "code": "J2270",
+    "description": "Morphine Sulfate Injection (up to 10mg)",
+    "category": "drug"
+  },
+  {
+    "code": "J2310",
+    "description": "Naloxone (Narcan) Injection (1mg)",
+    "category": "drug"
+  },
+  {
+    "code": "J2405",
+    "description": "Ondansetron (Zofran) Injection (1mg)",
+    "category": "drug"
+  },
+  {
+    "code": "J2550",
+    "description": "Promethazine (Phenergan) Injection (50mg)",
+    "category": "drug"
+  },
+  {
+    "code": "J2704",
+    "description": "Propofol Injection (10mg)",
+    "category": "drug"
+  },
+  {
+    "code": "J2795",
+    "description": "Ropivacaine Injection (1mg)",
+    "category": "drug"
+  },
+  {
+    "code": "J3010",
+    "description": "Fentanyl Injection (0.1mg)",
+    "category": "drug"
+  },
+  {
+    "code": "J3301",
+    "description": "Triamcinolone Injection (10mg)",
+    "category": "drug"
+  },
+  {
+    "code": "J3490",
+    "description": "Unclassified Drug",
+    "category": "drug"
+  },
+  {
+    "code": "J7030",
+    "description": "Normal Saline (1000ml)",
+    "category": "drug"
+  },
+  {
+    "code": "J7040",
+    "description": "Normal Saline with Dextrose (500ml)",
+    "category": "drug"
+  },
+  {
+    "code": "J7050",
+    "description": "Normal Saline (250ml)",
+    "category": "drug"
+  },
+  {
+    "code": "J7120",
+    "description": "Lactated Ringer's (1000ml)",
+    "category": "drug"
+  },
+  {
+    "code": "L3000",
+    "description": "Foot Insert/Orthotic",
+    "category": "dme"
+  },
+  {
+    "code": "Q4131",
+    "description": "Wound Care Skin Substitute",
+    "category": "supplies"
+  }
+]
