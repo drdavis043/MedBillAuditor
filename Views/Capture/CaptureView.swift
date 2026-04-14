@@ -13,6 +13,7 @@ struct CaptureView: View {
     @State private var showCamera = false
     @State private var showPhotoPicker = false
     @State private var showDocumentPicker = false
+    @State private var showManualEntry = false
     @State private var capturedImage: UIImage?
     @State private var isProcessing = false
     @State private var ocrResult: String?
@@ -85,6 +86,15 @@ struct CaptureView: View {
                     ) {
                         showDocumentPicker = true
                     }
+
+                    CaptureButton(
+                        title: "Enter Manually",
+                        subtitle: "Type in bill details by hand",
+                        icon: "pencil.and.list.clipboard",
+                        color: .green
+                    ) {
+                        showManualEntry = true
+                    }
                 }
                 .padding(.horizontal)
 
@@ -128,6 +138,10 @@ struct CaptureView: View {
                 if newImage != nil && !showPreview {
                     showPreview = true
                 }
+            }
+            .navigationDestination(isPresented: $showManualEntry) {
+                ManualEntryView()
+                    .toolbar(.hidden, for: .tabBar)
             }
             .navigationDestination(isPresented: $showPreview) {
                 if let image = capturedImage {
