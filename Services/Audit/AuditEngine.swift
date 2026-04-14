@@ -26,9 +26,11 @@ struct AuditEngine {
             .check(lineItems)
         async let balanceBillingFlags = BalanceBillingChecker()
             .check(lineItems)
+        async let quantityFlags = QuantityChecker()
+            .check(lineItems)
         // Collect all flags
         let allFlags = await priceFlags + duplicateFlags + unbundlingFlags
-            + upcodingFlags + balanceBillingFlags
+            + upcodingFlags + balanceBillingFlags + quantityFlags
         // Calculate metrics
         let totalOvercharge = allFlags
             .compactMap { $0.estimatedImpact }

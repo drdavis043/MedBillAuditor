@@ -226,12 +226,19 @@ struct BillParser {
     }
     
     /// Detects column header lines like "Svc Dt  Code  Description  Amount"
+    /// or simpler headers like "Date Description" (2+ keyword threshold).
+    /// Only triggers when the line has NO dollar amounts and NO medical codes.
     private func isColumnHeader(_ line: String) -> Bool {
+        // Don't treat lines with dollar amounts or medical codes as headers
+        if chargeExtractor.containsDollarAmount(line) { return false }
+        if cptExtractor.containsCode(line) { return false }
+
         let headers = ["svc dt", "rev code", "description", "amount", "qty", "ndc",
-                       "cpt /", "hcpcs", "code", "charge", "billed", "allowed",
-                       "adjustment", "ins paid", "you owe"]
+                       "cpt", "hcpcs", "code", "charge", "billed", "allowed",
+                       "adjustment", "ins paid", "you owe", "date", "service",
+                       "procedure", "unit", "total", "balance", "dos"]
         let matchCount = headers.filter { line.contains($0) }.count
-        return matchCount >= 3
+        return matchCount >= 2
     }
     
     private func isSubtotalOrTotal(_ line: String) -> Bool {
@@ -241,6 +248,14 @@ struct BillParser {
         (line.hasPrefix("total") && !line.contains("metabolic"))
     }
     
+    /// Detects EOB totals/summary rows that should not become line items.
+    /// These are lines like "Totals $1,200 $800 $400 $0 $400" at the end of an EOB.
+    private func isEOBTotalsRow(_ line: String) -> Bool {
+        line.hasPrefix("total") || line.contains("totals") ||
+        line.contains("claim total") || line.contains("balance forward") ||
+        line.contains("amount you owe") || line.contains("your responsibility")
+    }
+
     /// Detects if a line is JUST a dollar amount (a subtotal value on its own line)
     private func isStandaloneDollarAmount(_ line: String) -> Bool {
         let stripped = line
@@ -264,6 +279,7 @@ struct BillParser {
             // Skip noise
             if isSubtotalOrTotal(lower) { continue }
             if isCategoryHeader(line) { continue }
+            if isColumnHeader(lower) { continue }
             if lower.contains("page ") && line.contains(where: { $0.isNumber }) { continue }
             if lower.contains("prohibit") || lower.contains("insurance payment") { continue }
             if lower.contains("please mail") || lower.contains("please call") { continue }
@@ -357,13 +373,14 @@ struct BillParser {
         
         for line in sections.charges {
             let lower = line.lowercased()
-            
+
             // Skip noise
             if isSubtotalOrTotal(lower) { continue }
+            if isEOBTotalsRow(lower) { continue }
             if isCategoryHeader(line) { continue }
+            if isColumnHeader(lower) { continue }
             if lower.contains("page ") && line.contains(where: { $0.isNumber }) { continue }
             if lower.contains("payment is due") { continue }
-            if lower.hasPrefix("total") { continue }
             if line == "--" || line == "•" || line == ":" || line.count <= 1 { continue }
             
             let codes = cptExtractor.extract(from: line)
@@ -525,6 +542,15 @@ struct BillParser {
         // Remove "HO " prefix (OCR misread of "HC ")
         desc = desc.replacingOccurrences(
             of: "^\\s*HO\\s+",
+            with: "",
+            options: .regularExpression
+        )
+
+        // Remove pre-normalized OCR code patterns (e.g., "GO162", "DO120", "AO425")
+        // CPTExtractor normalizes [A-Z]O\d{3} → [A-Z]0\d{3} for code extraction,
+        // but the original OCR text remains in the description.
+        desc = desc.replacingOccurrences(
+            of: "\\b[A-Z]O\\d{3}\\b",
             with: "",
             options: .regularExpression
         )

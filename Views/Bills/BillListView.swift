@@ -177,7 +177,18 @@ struct BillRow: View {
 }
 // MARK: - Bill Detail View
 struct BillDetailView: View {
-    let bill: MedicalBill
+    @Bindable var bill: MedicalBill
+    @Environment(\.modelContext) private var modelContext
+    @State private var isEditing = false
+    @State private var editingCode = ""
+    @State private var editingDescription = ""
+    @State private var editingAmount = ""
+    @State private var editingQuantity = 1
+    @State private var showAddItem = false
+
+    private let descriptions = CodeDescriptionDatabase.shared
+    private let pricingService = PricingService()
+
     var body: some View {
         List {
             // Status banner
@@ -209,6 +220,12 @@ struct BillDetailView: View {
                             if let code = item.cptCode ?? item.hcpcsCode {
                                 Text(code)
                                     .badge(color: .blue)
+                                if let desc = descriptions.description(for: code) {
+                                    Text(desc)
+                                        .font(.caption2)
+                                        .foregroundStyle(.secondary)
+                                        .lineLimit(1)
+                                }
                             }
                             Spacer()
                             Text(formatCurrency(item.chargedAmount))
@@ -218,16 +235,27 @@ struct BillDetailView: View {
                             .font(AppTheme.Typography.caption)
                             .foregroundStyle(.secondary)
                         if let medicare = item.medicareRate {
+                            let isFacility = [.hospital, .emergency, .ambulatory].contains(bill.facilityType)
                             HStack(spacing: 4) {
                                 Image(systemName: "cross.circle")
                                     .font(.caption2)
-                                Text("Medicare: \(formatCurrency(medicare))")
+                                Text("Medicare (\(isFacility ? "facility" : "office")): \(formatCurrency(medicare))")
                                     .font(.caption2)
                             }
                             .foregroundStyle(AppTheme.Colors.warning)
                         }
+                        if item.quantity > 1 {
+                            Text("Qty: \(item.quantity)")
+                                .font(.caption2)
+                                .foregroundStyle(.secondary)
+                        }
                     }
                     .padding(.vertical, 2)
+                }
+                .onDelete(perform: isEditing ? deleteLineItems : nil)
+
+                if isEditing {
+                    addLineItemRow
                 }
             }
             // Audit section
@@ -270,7 +298,119 @@ struct BillDetailView: View {
         }
         .navigationTitle(bill.providerName)
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button(isEditing ? "Done" : "Edit") {
+                    if isEditing {
+                        finishEditing()
+                    }
+                    withAnimation { isEditing.toggle() }
+                }
+            }
+        }
+        .environment(\.editMode, .constant(isEditing ? .active : .inactive))
     }
+
+    // MARK: - Add Line Item (inline)
+
+    private var addLineItemRow: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text("Add Line Item")
+                .font(AppTheme.Typography.headline)
+                .foregroundStyle(AppTheme.Colors.accent)
+
+            TextField("CPT / HCPCS Code", text: $editingCode)
+                .font(AppTheme.Typography.code)
+                .textCase(.uppercase)
+                .onChange(of: editingCode) { _, newCode in
+                    let trimmed = newCode.trimmingCharacters(in: .whitespaces).uppercased()
+                    if trimmed.count >= 5, editingDescription.isEmpty,
+                       let desc = descriptions.description(for: trimmed) {
+                        editingDescription = desc
+                    }
+                }
+
+            TextField("Description", text: $editingDescription)
+
+            HStack {
+                HStack {
+                    Text("$").foregroundStyle(.secondary)
+                    TextField("0.00", text: $editingAmount)
+                        .keyboardType(.decimalPad)
+                }
+                Spacer()
+                Stepper("Qty: \(editingQuantity)", value: $editingQuantity, in: 1...99)
+            }
+
+            Button {
+                addNewLineItem()
+            } label: {
+                Label("Add", systemImage: "plus.circle.fill")
+                    .font(AppTheme.Typography.headline)
+            }
+            .disabled(editingAmount.isEmpty)
+        }
+        .padding(.vertical, 4)
+    }
+
+    // MARK: - Actions
+
+    private func deleteLineItems(at offsets: IndexSet) {
+        for index in offsets {
+            let item = bill.lineItems[index]
+            modelContext.delete(item)
+        }
+        bill.lineItems.remove(atOffsets: offsets)
+        invalidateAudit()
+    }
+
+    private func addNewLineItem() {
+        let item = LineItem(
+            itemDescription: editingDescription.isEmpty ? "Unknown Service" : editingDescription,
+            chargedAmount: Decimal(string: editingAmount) ?? 0,
+            quantity: editingQuantity
+        )
+        let code = editingCode.trimmingCharacters(in: .whitespaces).uppercased()
+        if !code.isEmpty {
+            if code.first?.isLetter == true {
+                item.hcpcsCode = code
+            } else {
+                item.cptCode = code
+            }
+            let evaluation = pricingService.evaluate(
+                chargedAmount: item.chargedAmount,
+                cptCode: code,
+                facilityType: bill.facilityType
+            )
+            item.medicareRate = evaluation.medicareRate
+            item.fairMarketPrice = evaluation.typicalRate
+        }
+        item.dateOfService = bill.serviceDate
+        bill.lineItems.append(item)
+
+        // Reset fields
+        editingCode = ""
+        editingDescription = ""
+        editingAmount = ""
+        editingQuantity = 1
+
+        invalidateAudit()
+    }
+
+    private func finishEditing() {
+        bill.totalCharged = bill.lineItems.reduce(Decimal(0)) { $0 + $1.chargedAmount }
+    }
+
+    private func invalidateAudit() {
+        if bill.auditResult != nil {
+            if let result = bill.auditResult {
+                modelContext.delete(result)
+            }
+            bill.auditResult = nil
+            bill.status = .parsed
+        }
+    }
+
     private func scoreColor(_ score: Int) -> Color {
         if score >= 50 { return AppTheme.Colors.danger }
         if score >= 25 { return AppTheme.Colors.warning }
